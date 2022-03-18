@@ -67,3 +67,46 @@ body {
   display: flex;
   transform: translate3d(0, 0.6rem, 0);
 }
+
+@media screen and (max-width: 750px) and (orientation: portrait) { 
+  html { 
+    font-family: 'Open Sans', sans-serif;
+    transform: rotate(-90deg); 
+    /* transform-origin: top left; */
+    height: 100vw; 
+    width: 100vh;
+    overflow-x: hidden; 
+    position: absolute; 
+    /* top: 75%;  */
+    left: -107%; 
+  }
+  .grid-container {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0;
+    display: grid;
+    width: 47.5rem;
+    height: 22.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-columns: 8rem 31.5rem 8rem;
+    grid-template-rows: 4.1rem 2.9rem 3rem 3rem 3.1rem 3.2rem 2rem; 
+    grid-row-gap: .2rem;
+    background: url('./img/track.jpg');
+    background-size: cover;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+  
+}
+@media screen and (max-width: 755px) { 
+  html { 
+    font-size: 15px;
+  }
+}
