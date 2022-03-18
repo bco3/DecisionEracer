@@ -1,0 +1,66 @@
+
+body {
+  background-color: #21571f;
+  margin: 0;
+  padding: 0;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-family: Impact, sans-serif;
+}
+
+.startbutton {
+  position: absolute;
+  top: 10vw;
+  left: 50vw;
+  z-index: 15;
+  padding: 0;
+  color:rgba(0, 0, 0, 0.63);
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #333;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;   
+}
+
+/* win and winner are for only styling the final winners screen at the end of race */
+
+.winnerCover {
+  pointer-events: none;
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  display: grid;
+  width: 47.5rem;
+  height: 22.5rem;
+  grid-template-columns: 8rem 31.5rem 8rem;
+  grid-template-rows: 5rem 4rem 4rem 4rem; 
+  background: url('./img/track.jpg');
+  background-size: 75rem;
+  background-position: 39% 30%;
+  opacity: 0%;
+  overflow: hidden;
+  justify-content: center; 
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  transition: opacity 0.5s ease-in;
+}
+
+#winnerCover {
+  opacity: 100%;
+}
+
+.winContainer {
+  grid-area: 2/2;
+  display: flex;
+  transform: translate3d(0, 0.6rem, 0);
+}

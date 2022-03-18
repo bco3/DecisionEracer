@@ -1,0 +1,419 @@
+
+.grid-container {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0;
+    display: grid;
+    width: 47.5rem;
+    height: 22.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-columns: 8rem 31.5rem 8rem;
+    grid-template-rows: 4.1rem 2.9rem 3rem 3rem 3.1rem 3.2rem 2rem; 
+    grid-row-gap: .2rem;
+    background: url('./img/track.jpg');
+    background-size: cover;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+/* lane is used to position the driver in that lane and move them across the track, 
+laneSet sets them in starting position, laneOut is for when they're not set to race, 
+laneSlow is for below average race time and laneFast is for above average race time */
+
+.lane1 {
+    z-index: 10;
+    grid-area: 2/1;
+    width: 6rem;
+    position: absolute;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    height: 3rem;
+}
+#lane1Set{
+    transition: 1s linear;
+    transform: translate3d(-20.5rem, -7.7rem, 0rem);
+}
+#lane1Slow {
+    animation-name: lane1Slow;
+    animation-fill-mode: forwards;
+}
+@keyframes lane1Slow {
+    0% {
+        transform: translate3d(-20.5rem, -7.7rem, 0rem);
+        animation-timing-function: cubic-bezier(.58,0,.75,.76);
+    }
+    17% {
+        transform: translate3d(-12.5rem, -7.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-3.5rem, -7.8rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(6.5rem, -7.6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(14.5rem, -7.7rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -7.6rem, 0rem);
+    }
+
+}
+#lane1Fast {
+    animation-name: lane1Fast;
+    animation-fill-mode: forwards;
+}
+@keyframes lane1Fast {
+    0% {
+        transform: translate3d(-20.5rem, -7.7rem, 0rem);
+        animation-timing-function: cubic-bezier(.58,0,.75,.76);
+    }
+    17% {
+        transform: translate3d(-11.5rem, -7.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-3.5rem, -7.8rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(5.5rem, -7.6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(14.5rem, -7.7rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -7.6rem, 0rem);
+    }
+
+}
+#lane1Out {
+    transform: translate3d(-22.9rem, -7.7rem, 0rem);
+}
+
+
+.lane2 {
+    z-index: 11;
+    grid-area: 3/1;
+    width: 6rem;
+    position: absolute;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    height: 3rem;
+}
+#lane2Set{
+    transition: 2s ease-out;
+    transform: translate3d(-21rem, -6.2rem, 0rem);
+}
+#lane2Slow {
+    animation-name: lane2Slow;
+    animation-fill-mode: forwards;
+}
+@keyframes lane2Slow {
+    0% {
+        transform: translate3d(-21rem, -6.2rem, 0rem);
+        animation-timing-function: ease-in;
+    }
+    17% {
+        transform: translate3d(-17rem, -6.0rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-9rem, -6.4rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(4rem, -6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(14.5rem, -6.2rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -6.2rem, 0rem);
+    }
+}
+#lane2Fast {
+    animation-name: lane2Fast;
+    animation-fill-mode: forwards;
+}
+@keyframes lane2Fast {
+    0% {
+        transform: translate3d(-21rem, -6.2rem, 0rem);
+        animation-timing-function: ease-in;}
+    17% {
+        transform: translate3d(-16rem, -6.4rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-10rem, -6.2rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(2rem, -5.8rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(14.5rem, -6.2rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -6.2rem, 0rem);
+    }
+}
+#lane2Out {
+    transform: translate3d(-23rem, -6.2rem, 0rem);
+}
+
+
+.lane3 {
+    z-index: 12;
+    grid-area: 4/1;
+    width: 6rem;
+    position: absolute;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    height: 3rem;
+}
+#lane3Set{
+    transition: 2s ease-out;
+    transform: translate3d(-19rem, -4.8rem, 0rem);
+}
+#lane3Slow {
+    animation-name: lane3Slow;
+    animation-fill-mode: forwards;
+}
+@keyframes lane3Slow {
+    0% {
+        transform: translate3d(-19rem, -4.8rem, 0rem);
+        animation-timing-function: cubic-bezier(.58,0,.75,.76);
+    }
+    17% {
+        transform: translate3d(-12.5rem, -5.8rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-3.5rem, -5.4rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(9rem, -6.3rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(18rem, -5.7rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -4.8rem, 0rem);
+    }
+
+}
+#lane3Fast {
+    animation-name: lane3Fast;
+    animation-fill-mode: forwards;
+}
+@keyframes lane3Fast {
+    0% {
+        transform: translate3d(-19rem, -4.8rem, 0rem);
+        animation-timing-function: cubic-bezier(.58,0,.75,.76);
+    }
+    17% {
+        transform: translate3d(-11.5rem, -5.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-3.5rem, -6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(5rem, -5.3rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(18rem, -5.7rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -4.8rem, 0rem);
+    }
+
+}
+#lane3Out {
+    transform: translate3d(-22.1rem, -5.3rem, 0rem);
+}
+
+
+.lane4 {
+    z-index: 13;
+    grid-area: 5/1;
+    width: 6rem;
+    height: 3rem;
+    position: absolute;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+#lane4Set{
+    transition: 2s ease-out;
+    transform: translate3d(-20rem, -4.5rem, 0rem);
+}
+#lane4Slow {
+    animation-name: lane4Slow;
+    animation-fill-mode: forwards;
+}
+@keyframes lane4Slow {
+    0% {
+        transform: translate3d(-20rem, -4.5rem, 0rem);
+        animation-timing-function: cubic-bezier(.58,0,.75,.76);
+    }
+    17% {
+        transform: translate3d(-13rem, -4.6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-4rem, -4.6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(6rem, -4.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(17.8rem, -4.2rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -4.4rem, 0rem);
+    }
+}
+#lane4Fast {
+    animation-name: lane4Fast;
+    animation-fill-mode: forwards;
+}
+@keyframes lane4Fast {
+    0% {
+        transform: translate3d(-20rem, -4.5rem, 0rem);
+        animation-timing-function: cubic-bezier(.58,0,.75,.76);
+    }
+    17% {
+        transform: translate3d(-12rem, -4.3rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-2.5rem, -4.6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(9rem, -4.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(17.7rem, -4.6rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -4.4rem, 0rem);
+    }
+}
+#lane4Out {
+    transform: translate3d(-22.8rem, -4.5rem, 0rem);
+}
+
+
+.lane5 {
+    z-index: 14;
+    grid-area: 6/1;
+    width: 6rem;
+    height: 3rem;
+    position: absolute;
+    justify-content: center; 
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+#lane5Set{
+    transition: 2s ease-out;
+    transform: translate3d(-19.7rem, -1rem, 0rem);
+}
+#lane5Slow {
+    animation-name: lane5Slow;
+    animation-fill-mode: forwards;
+}
+@keyframes lane5Slow {
+    0% {
+        transform: translate3d(-19.7rem, -1rem, 0rem);
+        animation-timing-function: ease-in;
+    }
+    17% {
+        transform: translate3d(-9rem, -1.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(0rem, -0.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(10rem, -1.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(19rem, -1rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -1rem, 0rem);
+    }
+}
+#lane5Fast {
+    animation-name: lane5Fast;
+    animation-fill-mode: forwards;
+}
+@keyframes lane5Fast {
+    0% {
+        transform: translate3d(-19.7rem, -1rem, 0rem);
+        animation-timing-function: ease-in;
+    }
+    17% {
+        transform: translate3d(-9rem, -1.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    34% {
+        transform: translate3d(-1rem, -0.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    51% {
+        transform: translate3d(9rem, -1.5rem, 0rem);
+        animation-timing-function: linear;
+    }
+    68% {
+        transform: translate3d(19rem, -1rem, 0rem);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: translate3d(26.5rem, -1rem, 0rem);
+    }
+}
+#lane5Out {
+    transform: translate3d(-22.7rem, -1rem, 0rem);
+}
