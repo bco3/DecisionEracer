@@ -1,13 +1,13 @@
-@font-face {
-  font-family: ZillaSlab;
+/* @font-face {
+  font-family: 'Zilla Slab';
   src: url(C:\Users\byron\Desktop\bco3-first-game\src\font\ZillaSlab-Medium.ttf);
-}
+} */
 
 body {
   background-color: #8f82ff;
   margin: 0;
   padding: 0;
-  font-family: ZillaSlab,-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Zilla Slab',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
