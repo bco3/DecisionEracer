@@ -91,6 +91,9 @@
 
 /* lane input and checkbox, are used to setup racers name as a checkbox to bring racer into the race,
 enter a option for the decision maker part of the app, the entered option is only temperarily stored in racers state object with sponsor as key. */
+label {
+    left: -45%
+  }
 
 .lane1input {
     grid-area: 2/2;
@@ -108,13 +111,13 @@ enter a option for the decision maker part of the app, the entered option is onl
 .btnLane1 {
     z-index: 1;
     position: relative;
-    left: -45%;
+    /* left: -45%; */
     grid-area: 2/2;
     background: none;
     border: 0;
     font-size: 1.8rem;
     color:rgba(223, 223, 223, 0.4);
-    transform: matrix(1, 0, .3, 1, -0, -0);
+    transform: matrix(1, 0, .3, 1, 2, -0);
 }
 #setLane1 {
     z-index: 1;
@@ -146,7 +149,7 @@ enter a option for the decision maker part of the app, the entered option is onl
 .btnLane2 {
     z-index: 1;
     position: relative;
-    left: -45%;
+    /* left: -45%; */
     grid-area: 3/2;
     background: none;
     border: 0;
@@ -184,7 +187,7 @@ enter a option for the decision maker part of the app, the entered option is onl
 .btnLane3 {
     z-index: 1;
     position: relative;
-    left: -45%;
+    /* left: -45%; */
     grid-area: 4/2;
     background: none;
     border: 0;
@@ -223,7 +226,7 @@ enter a option for the decision maker part of the app, the entered option is onl
 .btnLane4 {
     z-index: 1;
     position: relative;
-    left: -45%;
+    /* left: -45%; */
     grid-area: 5/2;
     background: none;
     border: 0;
@@ -261,13 +264,13 @@ enter a option for the decision maker part of the app, the entered option is onl
 .btnLane5 {
     z-index: 1;
     position: relative;
-    left: -45%;
+    /* left: -45%; */
     grid-area: 6/2;
     background: none;
     border: 0;
     font-size: 1.8rem;
     color:rgba(223, 223, 223, 0.4);
-    transform: matrix(1, 0, .3, 1, -5, -0);
+    transform: matrix(1, 0, .3, 1, -6, -0);
 }
 #setLane5 {
     z-index: 1;
@@ -320,3 +323,11 @@ as a feature of using the racers to help make decisions based on options entered
     transform: matrix(1, 0, 0, 1, 0, 25);
 }
 
+@media (max-width: 755px) { 
+    label {
+      left: -43%
+    }
+    .btnLane4 {
+      transform: matrix(1, 0, .3, 1, 6, -0);
+    }
+  }

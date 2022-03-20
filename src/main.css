@@ -70,31 +70,24 @@ body {
 
 @media (max-width: 700px) and (orientation: portrait) { 
   html { 
-    font-size: 14.5px;
-    font-family: 'Open Sans', sans-serif;
     transform: rotate(-90deg); 
-    transform-origin: top left;
-    height: 100%; 
-    width: 100%;
-    /* overflow: hidden;  */
-    position: absolute; 
-    top: 75%; 
-    left: -55%; 
-  }
-  .container {
     position: relative;
     width: 100vw;
     height: 100vh;
     background-color: #333;
     align-items: center;
     justify-content: center;
+    overflow: hidden;  
+  }
+  .container {
     overflow: visible;   
   }
-
-  
 }
+
 @media (max-width: 755px) { 
   html { 
+    font-family: 'Open Sans', sans-serif;
     font-size: 14.5px;
   }
+  
 }
