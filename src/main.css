@@ -105,28 +105,28 @@ body {
   }
 }
 
-@media (max-width: 735px) { 
+@media (max-width: 740px) { 
   html { 
     font-size: 15.2px;
   }
   
 }
 
-@media (max-width: 710px) { 
+@media (max-width: 715px) { 
   html { 
     font-size: 14.7px;
   }
   
 }
 
-@media (max-width: 685px) { 
+@media (max-width: 690px) { 
   html { 
     font-size: 14.2px;
   }
   
 }
 
-@media (max-width: 660px) { 
+@media (max-width: 665px) { 
   html { 
     font-size: 14px;
   }

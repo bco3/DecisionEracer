@@ -323,7 +323,7 @@ as a feature of using the racers to help make decisions based on options entered
     transform: matrix(1, 0, 0, 1, 0, 25);
 }
 
-@media (max-width: 735px) { 
+@media (max-width: 740px) { 
     label {
       left: -44%
     }
