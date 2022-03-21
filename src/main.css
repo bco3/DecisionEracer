@@ -70,6 +70,7 @@ body {
 
 @media (max-width: 700px) and (orientation: portrait) { 
   html { 
+    font-size: 14.5px;
     transform: rotate(-90deg); 
     position: relative;
     width: 100vw;
@@ -84,10 +85,16 @@ body {
   }
 }
 
-@media (max-width: 755px) { 
+@media (max-width: 735px) { 
   html { 
-    font-family: 'Open Sans', sans-serif;
     font-size: 14.5px;
+  }
+  
+}
+
+@media (max-width: 665px) { 
+  html { 
+    font-size: 14.2px;
   }
   
 }

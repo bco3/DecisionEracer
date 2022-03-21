@@ -106,7 +106,7 @@ label {
     border-radius: 5px;
     font-size: 1.5rem;
     color:rgb(180, 180, 180);
-    transform: matrix(1, 0, .15, 1, -0, -0);
+    transform: matrix(1, 0, .15, 1, 0, -0);
 }
 .btnLane1 {
     z-index: 1;
@@ -323,11 +323,14 @@ as a feature of using the racers to help make decisions based on options entered
     transform: matrix(1, 0, 0, 1, 0, 25);
 }
 
-@media (max-width: 755px) { 
+@media (max-width: 735px) { 
     label {
-      left: -43%
+      left: -43.5%
     }
     .btnLane4 {
       transform: matrix(1, 0, .3, 1, 6, -0);
+    }
+    #lane1input {
+        transform: matrix(1, 0, .15, 1, 6, -0);
     }
   }
