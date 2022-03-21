@@ -87,14 +87,28 @@ body {
 
 @media (max-width: 735px) { 
   html { 
-    font-size: 14.5px;
+    font-size: 15.2px;
   }
   
 }
 
-@media (max-width: 665px) { 
+@media (max-width: 710px) { 
+  html { 
+    font-size: 14.7px;
+  }
+  
+}
+
+@media (max-width: 685px) { 
   html { 
     font-size: 14.2px;
+  }
+  
+}
+
+@media (max-width: 660px) { 
+  html { 
+    font-size: 13.8px;
   }
   
 }

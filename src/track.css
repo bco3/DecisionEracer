@@ -119,7 +119,7 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 #lane2Set{
     transition: 2s ease-out;
-    transform: translate3d(-21.3rem, -6.2rem, 0rem);
+    transform: translate3d(-21.4rem, -6.2rem, 0rem);
 }
 #lane2Slow {
     animation-name: lane2Slow;
@@ -127,7 +127,7 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane2Slow {
     0% {
-        transform: translate3d(-21.3rem, -6.2rem, 0rem);
+        transform: translate3d(-21.4rem, -6.2rem, 0rem);
         animation-timing-function: ease-in;
     }
     17% {
@@ -156,7 +156,7 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane2Fast {
     0% {
-        transform: translate3d(-21.3rem, -6.2rem, 0rem);
+        transform: translate3d(-21.4rem, -6.2rem, 0rem);
         animation-timing-function: ease-in;}
     17% {
         transform: translate3d(-16rem, -6.4rem, 0rem);
