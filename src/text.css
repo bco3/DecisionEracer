@@ -325,12 +325,12 @@ as a feature of using the racers to help make decisions based on options entered
 
 @media (max-width: 735px) { 
     label {
-      left: -43.5%
+      left: -44%
     }
     .btnLane4 {
       transform: matrix(1, 0, .3, 1, 6, -0);
     }
     #lane1input {
-        transform: matrix(1, 0, .15, 1, 6, -0);
+        transform: matrix(1, 0, .15, 1, 7, -0);
     }
   }

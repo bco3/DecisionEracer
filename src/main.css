@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: #21571f;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
   color: rgb(255, 255, 255);
@@ -20,12 +20,28 @@ body {
   color:rgba(0, 0, 0, 0.63);
   cursor: pointer;
 }
-
 .container {
+  display: grid;
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: #333;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  overflow: hidden;   
+}
+
+.inner-container {
+  position: relative;
+  width: 72.5rem;
+  height: 47.5rem;
+  background: url('./img/trackfull.jpg');
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+  justify-self: center;
+  align-self: center;
   align-items: center;
   justify-content: center;
   overflow: hidden;   
@@ -42,15 +58,15 @@ body {
   transform: translate(-50%, -50%);
   padding: 0;
   display: grid;
-  width: 47.5rem;
-  height: 22.5rem;
+  width: 114.5rem;
+  height: 75rem;
   grid-template-columns: 8rem 31.5rem 8rem;
   grid-template-rows: 5rem 4rem 4rem 4rem; 
-  background: url('./img/track.jpg');
-  background-size: 75rem;
+  background: url('./img/trackfull.jpg');
+  background-size: cover;
   background-position: 39% 30%;
   opacity: 0%;
-  overflow: hidden;
+  overflow: clip;
   justify-content: center; 
   align-content: center;
   justify-items: center;
@@ -72,14 +88,18 @@ body {
   html { 
     font-size: 14.5px;
     transform: rotate(-90deg); 
+    display: grid;
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: #333;
+    background-color: rgb(255, 255, 255);
     align-items: center;
+    align-content: center;
     justify-content: center;
+    justify-items: center;
     overflow: hidden;  
   }
+
   .container {
     overflow: visible;   
   }
@@ -108,7 +128,7 @@ body {
 
 @media (max-width: 660px) { 
   html { 
-    font-size: 13.8px;
+    font-size: 14px;
   }
   
 }

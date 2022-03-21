@@ -293,6 +293,7 @@ export const Race = () => {
 
 return (
 <div className="container">
+<div className="inner-container">
     <div className="grid-container">
         <div className='titleShadow' >DECISION eRACER</div>
         <div className='title' >DECISION eRACER</div>
@@ -364,6 +365,7 @@ return (
             <div className='foxy' id={foxy.id} alt={foxy.alt} ></div>
         </div>
     </div>
+</div>
     {winResultsCover(resultScreen)}
 </div>
 );}

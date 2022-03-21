@@ -10,12 +10,12 @@
     width: 47.5rem;
     height: 22.5rem;
     /* border-radius: 1rem; */
-    overflow: hidden;
+    overflow: visible;
     grid-template-columns: 8rem 31.5rem 8rem;
     grid-template-rows: 4.1rem 2.9rem 3rem 3rem 3.1rem 3.2rem 2rem; 
     grid-row-gap: .2rem;
-    background: url('./img/track.jpg');
-    background-size: cover;
+    /* background: url('./img/track.jpg'); */
+    /* background-size: cover; */
     justify-content: center; 
     align-content: center;
     justify-items: center;
@@ -67,7 +67,7 @@ laneSlow is for below average race time and laneFast is for above average race t
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -7.6rem, 0rem);
+        transform: translate3d(24rem, -7.6rem, 0rem);
     }
 
 }
@@ -97,7 +97,7 @@ laneSlow is for below average race time and laneFast is for above average race t
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -7.6rem, 0rem);
+        transform: translate3d(24rem, -7.6rem, 0rem);
     }
 
 }
@@ -147,7 +147,7 @@ laneSlow is for below average race time and laneFast is for above average race t
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -6.2rem, 0rem);
+        transform: translate3d(24.5rem, -6.2rem, 0rem);
     }
 }
 #lane2Fast {
@@ -175,7 +175,7 @@ laneSlow is for below average race time and laneFast is for above average race t
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -6.2rem, 0rem);
+        transform: translate3d(25rem, -6.2rem, 0rem);
     }
 }
 #lane2Out {
