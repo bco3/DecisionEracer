@@ -10,7 +10,7 @@
     width: 47.5rem;
     height: 22.5rem;
     /* border-radius: 1rem; */
-    overflow: hidden;
+    overflow: visible;
     grid-template-columns: 8rem 31.5rem 8rem;
     grid-template-rows: 4.1rem 2.9rem 3rem 3rem 3.1rem 3.2rem 2rem; 
     grid-row-gap: .2rem;
