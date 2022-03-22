@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/DecisionEracer/static/css/main.3d978b62.css",
+    "main.css": "/DecisionEracer/static/css/main.f0429907.css",
     "main.js": "/DecisionEracer/static/js/main.15af6b9f.js",
     "static/media/golden.png": "/DecisionEracer/static/media/golden.56c38ff9604341aa20d8.png",
     "static/media/pup.png": "/DecisionEracer/static/media/pup.57941c716ec440724855.png",
     "static/media/dan.png": "/DecisionEracer/static/media/dan.103936b81fde77406d95.png",
     "static/media/foxy.png": "/DecisionEracer/static/media/foxy.c4bf3b231eb2dd79bf16.png",
     "static/media/honey.png": "/DecisionEracer/static/media/honey.9cf787d7ada2560a899b.png",
+    "static/media/trackfullmobile.jpg": "/DecisionEracer/static/media/trackfullmobile.c2b547318187d0d31cb7.jpg",
     "static/media/trackfull.jpg": "/DecisionEracer/static/media/trackfull.1982628ce2f1ba38cad6.jpg",
     "index.html": "/DecisionEracer/index.html",
-    "main.3d978b62.css.map": "/DecisionEracer/static/css/main.3d978b62.css.map",
+    "main.f0429907.css.map": "/DecisionEracer/static/css/main.f0429907.css.map",
     "main.15af6b9f.js.map": "/DecisionEracer/static/js/main.15af6b9f.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d978b62.css",
+    "static/css/main.f0429907.css",
     "static/js/main.15af6b9f.js"
   ]
 }
