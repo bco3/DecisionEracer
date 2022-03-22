@@ -104,31 +104,98 @@ body {
     overflow: visible;   
   }
 }
+@media (max-width: 900px) { 
 
-@media (max-width: 740px) { 
-  html { 
-    font-size: 15.2px;
+  .inner-container {
+    position: relative;
+    width: 72.5rem;
+    height: 47.5rem;
+    background: url('./img/trackfullmobile.jpg');
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   
   }
-  
+}
+@media (max-width: 740px) { 
+  html {
+    font-size: 15.2px;
+    font-family: impact ,'Open Sans', sans-serif;
+  }
+  .inner-container {
+    position: relative;
+    width: 72.5rem;
+    height: 47.5rem;
+    background: url('./img/trackfullmobile.jpg');
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   
+  }
 }
 
 @media (max-width: 715px) { 
-  html { 
+  html {
     font-size: 14.7px;
+    font-family: impact ,'Open Sans', sans-serif;
   }
-  
+  .inner-container {
+    position: relative;
+    width: 72.5rem;
+    height: 47.5rem;
+    background: url('./img/trackfullmobile.jpg');
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   
+  }
 }
 
 @media (max-width: 690px) { 
-  html { 
+  html {
     font-size: 14.2px;
+    font-family: impact ,'Open Sans', sans-serif;
   }
-  
+  .inner-container {
+    position: relative;
+    width: 72.5rem;
+    height: 47.5rem;
+    background: url('./img/trackfullmobile.jpg');
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   
+  }
 }
 
 @media (max-width: 665px) { 
-  html { 
+  html {
     font-size: 14px;
+    font-family: impact ,'Open Sans', sans-serif;
   }
-  
+  .inner-container {
+    position: relative;
+    width: 72.5rem;
+    height: 47.5rem;
+    background: url('./img/trackfullmobile.jpg');
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   
+  }
 }
