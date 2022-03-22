@@ -1,6 +1,6 @@
 html {
   font-size: 16px;
-  font-family: impact ,'Open Sans', sans-serif;
+  font-family: 'Open Sans', Impact, sans-serif;
 }
 
 body {
@@ -13,8 +13,8 @@ body {
 
 .startbutton {
   position: absolute;
-  top: 10vw;
-  left: 50vw;
+  top: 10%;
+  left: 50%;
   z-index: 15;
   padding: 0;
   color:rgba(0, 0, 0, 0.63);
@@ -66,7 +66,7 @@ body {
   background-size: cover;
   background-position: 39% 30%;
   opacity: 0%;
-  overflow: clip;
+  overflow: visible;
   justify-content: center; 
   align-content: center;
   justify-items: center;
@@ -84,118 +84,54 @@ body {
   transform: translate3d(0, 0.6rem, 0);
 }
 
-@media (max-width: 700px) and (orientation: portrait) { 
+@media screen and (max-width: 900px) { 
+  .inner-container {
+    position: relative;
+    width: 72.5rem;
+    height: 47.5rem;
+    background: url('./img/trackfullmobile.jpg');
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   
+  }
+}
+
+@media (max-width: 639px) and (orientation: portrait) { 
   html { 
     font-size: 14.5px;
-    transform: rotate(-90deg); 
-    display: grid;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    overflow: hidden;  
+    overflow: hidden;
   }
-
   .container {
+    transform: rotate(-90deg);
     overflow: visible;   
   }
 }
-@media (max-width: 900px) { 
 
-  .inner-container {
-    position: relative;
-    width: 72.5rem;
-    height: 47.5rem;
-    background: url('./img/trackfullmobile.jpg');
-    background-size: cover;
-    background-color: rgb(255, 255, 255);
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;   
-  }
-}
-@media (max-width: 740px) { 
+@media screen and (max-width: 740px) and (min-width: 716px) { 
   html {
     font-size: 15.2px;
-    font-family: impact ,'Open Sans', sans-serif;
-  }
-  .inner-container {
-    position: relative;
-    width: 72.5rem;
-    height: 47.5rem;
-    background: url('./img/trackfullmobile.jpg');
-    background-size: cover;
-    background-color: rgb(255, 255, 255);
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;   
   }
 }
 
-@media (max-width: 715px) { 
+@media screen and (max-width: 715px) and (min-width: 691px) { 
   html {
     font-size: 14.7px;
-    font-family: impact ,'Open Sans', sans-serif;
   }
-  .inner-container {
-    position: relative;
-    width: 72.5rem;
-    height: 47.5rem;
-    background: url('./img/trackfullmobile.jpg');
-    background-size: cover;
-    background-color: rgb(255, 255, 255);
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;   
-  }
+
 }
 
-@media (max-width: 690px) { 
+@media screen and (max-width: 690px) and (min-width: 666px) { 
   html {
     font-size: 14.2px;
-    font-family: impact ,'Open Sans', sans-serif;
-  }
-  .inner-container {
-    position: relative;
-    width: 72.5rem;
-    height: 47.5rem;
-    background: url('./img/trackfullmobile.jpg');
-    background-size: cover;
-    background-color: rgb(255, 255, 255);
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;   
   }
 }
 
-@media (max-width: 665px) { 
+@media screen and (max-width: 665px) and (min-width: 640px){ 
   html {
     font-size: 14px;
-    font-family: impact ,'Open Sans', sans-serif;
-  }
-  .inner-container {
-    position: relative;
-    width: 72.5rem;
-    height: 47.5rem;
-    background: url('./img/trackfullmobile.jpg');
-    background-size: cover;
-    background-color: rgb(255, 255, 255);
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;   
   }
 }
