@@ -107,7 +107,7 @@ body {
   }
   .container {
     transform: rotate(-90deg);
-    overflow: visible;   
+    overflow: visible;
   }
 }
 
@@ -115,23 +115,38 @@ body {
   html {
     font-size: 15.2px;
   }
+  .container {
+    overflow-y: visible; 
+    overflow-x: hidden; 
+  }
 }
 
 @media screen and (max-width: 715px) and (min-width: 691px) { 
   html {
     font-size: 14.7px;
   }
-
+  .container {
+    overflow-y: visible; 
+    overflow-x: hidden; 
+  }
 }
 
 @media screen and (max-width: 690px) and (min-width: 666px) { 
   html {
     font-size: 14.2px;
   }
+  .container {
+    overflow-y: visible; 
+    overflow-x: hidden; 
+  }
 }
 
 @media screen and (max-width: 665px) and (min-width: 640px){ 
   html {
     font-size: 14px;
+  }
+  .container {
+    overflow-y: visible; 
+    overflow-x: hidden; 
   }
 }
