@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DecisionEracer/static/css/main.ad4acef0.css",
+    "main.css": "/DecisionEracer/static/css/main.e38e93bc.css",
     "main.js": "/DecisionEracer/static/js/main.15af6b9f.js",
     "static/media/golden.png": "/DecisionEracer/static/media/golden.56c38ff9604341aa20d8.png",
     "static/media/pup.png": "/DecisionEracer/static/media/pup.57941c716ec440724855.png",
@@ -10,11 +10,11 @@
     "static/media/trackfullmobile.jpg": "/DecisionEracer/static/media/trackfullmobile.8ee6efcda4ec86d6cd61.jpg",
     "static/media/trackfull.jpg": "/DecisionEracer/static/media/trackfull.1982628ce2f1ba38cad6.jpg",
     "index.html": "/DecisionEracer/index.html",
-    "main.ad4acef0.css.map": "/DecisionEracer/static/css/main.ad4acef0.css.map",
+    "main.e38e93bc.css.map": "/DecisionEracer/static/css/main.e38e93bc.css.map",
     "main.15af6b9f.js.map": "/DecisionEracer/static/js/main.15af6b9f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad4acef0.css",
+    "static/css/main.e38e93bc.css",
     "static/js/main.15af6b9f.js"
   ]
 }
