@@ -206,6 +206,11 @@ export const Race = () => {
         break;}
         case 'setLane5': { setFoxy({...foxy,position:'lane5Set', id:'foxyMove'})
             let lane5 = document.getElementById('lane5input')
+            window.scrollTo({
+                top: 190,
+                left: 0,
+                behavior: 'smooth'
+              });
             lane5.focus();
             lane5.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(1.5,6.25);
@@ -293,7 +298,7 @@ export const Race = () => {
 
 return (
 <div className="container">
-<div className="inner-container">
+  <div className="inner-container">
     <div className="grid-container">
         <div className='titleShadow' >DECISION eRACER</div>
         <div className='title' >DECISION eRACER</div>
@@ -365,7 +370,7 @@ return (
             <div className='foxy' id={foxy.id} alt={foxy.alt} ></div>
         </div>
     </div>
-</div>
+  </div>
     {winResultsCover(resultScreen)}
 </div>
 );}

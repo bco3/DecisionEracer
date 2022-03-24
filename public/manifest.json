@@ -3,17 +3,17 @@
   "name": "Decision eRacer",
   "icons": [
     {
-      "src": "eracericon64.jpg",
+      "src": "../src/img/eracericon64.jpg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "eracericon192.jpg",
+      "src": "../src/img/eracericon192.jpg",
       "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "eracericon500.jpg",
+      "src": "../src/img/eracericon500.jpg",
       "type": "image/jpg",
       "sizes": "512x512"
     }

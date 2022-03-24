@@ -9,6 +9,8 @@
     margin: auto;
     height: 100%;
     color: rgb(194, 9, 9);
+    overflow: auto;   
+    /* scroll-snap-align: start; */
     }
 .titleShadow {
     font-size: 2.8rem;
@@ -105,7 +107,8 @@ input {
 }
 
 .lane1input {
-    grid-area: 2/2;
+    grid-area: 2/2;   
+    scroll-snap-align: start;
 }
 #lane1input {
     grid-area: 2/2;
@@ -142,6 +145,7 @@ input {
 #lane2input {
     grid-area: 3/2;
     transform: matrix(1, 0, .15, 1, 20, -0);
+    /* scroll-snap-align: start; */
 }
 .btnLane2 {
     z-index: 1;
@@ -170,6 +174,7 @@ input {
 
 .lane3input {
     grid-area: 4/2;
+    /* scroll-snap-align: start; */
 }
 #lane3input {
     grid-area: 4/2;
@@ -234,6 +239,7 @@ input {
 
 .lane5input {
     grid-area: 6/2;
+    /* scroll-snap-align: start; */
 }
 #lane5input {
     grid-area: 6/2;
