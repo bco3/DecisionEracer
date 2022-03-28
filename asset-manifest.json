@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/DecisionEracer/static/css/main.21f8ce6a.css",
-    "main.js": "/DecisionEracer/static/js/main.15af6b9f.js",
+    "main.css": "/DecisionEracer/static/css/main.63d3b5a5.css",
+    "main.js": "/DecisionEracer/static/js/main.6a815e7f.js",
     "static/media/golden.png": "/DecisionEracer/static/media/golden.56c38ff9604341aa20d8.png",
     "static/media/pup.png": "/DecisionEracer/static/media/pup.57941c716ec440724855.png",
     "static/media/dan.png": "/DecisionEracer/static/media/dan.103936b81fde77406d95.png",
     "static/media/foxy.png": "/DecisionEracer/static/media/foxy.c4bf3b231eb2dd79bf16.png",
     "static/media/honey.png": "/DecisionEracer/static/media/honey.9cf787d7ada2560a899b.png",
-    "static/media/trackfullmobile.jpg": "/DecisionEracer/static/media/trackfullmobile.8ee6efcda4ec86d6cd61.jpg",
-    "static/media/trackfull.jpg": "/DecisionEracer/static/media/trackfull.1982628ce2f1ba38cad6.jpg",
+    "static/media/tracklongmobile.jpg": "/DecisionEracer/static/media/tracklongmobile.d543d91749993a812b79.jpg",
+    "static/media/tracklong.jpg": "/DecisionEracer/static/media/tracklong.8185e3052a635f9e7fa3.jpg",
     "index.html": "/DecisionEracer/index.html",
-    "main.21f8ce6a.css.map": "/DecisionEracer/static/css/main.21f8ce6a.css.map",
-    "main.15af6b9f.js.map": "/DecisionEracer/static/js/main.15af6b9f.js.map"
+    "main.63d3b5a5.css.map": "/DecisionEracer/static/css/main.63d3b5a5.css.map",
+    "main.6a815e7f.js.map": "/DecisionEracer/static/js/main.6a815e7f.js.map"
   },
   "entrypoints": [
-    "static/css/main.21f8ce6a.css",
-    "static/js/main.15af6b9f.js"
+    "static/css/main.63d3b5a5.css",
+    "static/js/main.6a815e7f.js"
   ]
 }
