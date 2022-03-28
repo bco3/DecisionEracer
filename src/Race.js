@@ -9,7 +9,7 @@ export const Race = () => {
 
     //go is the start button, used to start the race, and inmpacts the timing for resultScreen//
     const [go,setGo] = useState('START');
-    const [follow, setFollow] = useState(0)
+    const [follow, setFollow] = useState('')
     //resultScreen is used to apply new JSX that is the results screen when race ends//
     const [resultScreen, setResultScreen] = useState('off')
 
@@ -81,11 +81,13 @@ export const Race = () => {
     //when start is clicked, triggers useEffects to countdown and start race.//
     const handleGo = (e) => {
         e.target.id = 'go';
-        setGo('MARK')
+        window.scrollTo({top:190, left: 0, behavior: 'smooth'});
+        setGo('MARK');
     }
     useEffect(() => {
         if(go === 'MARK') {
         setResultScreen('set');
+        setFollow('follow')
         const markSet = setTimeout(() =>
         setGo('SET'),1300)
         return() => clearTimeout(markSet);
@@ -121,13 +123,14 @@ export const Race = () => {
     const theWinnerText = () => {return raceResultsFinished[0][2]};
 
     //starts race, gets racers moving, and page to follow racers from left to right//
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    const vw = Math.max(window.innerWidth || 0, window.visualViewport.width || 0, document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
     useEffect(() => {
         if(go ==='SET'){
         const markSetGo = setTimeout(() => {
             setGo('GO!');
-            if(vw < 1400){setFollow(vw - 1448)}
+            if(vw < 1400){document.querySelector('#follow').style.setProperty('--tracking',vw - 1448 + 'px');}
             if(pup.position === 'lane1Set'){setPup({...pup, position:lane1Time.animation, id:'pupMove'})}
             if(dan.position === 'lane2Set'){setDan({...dan, position:lane2Time.animation, id:'danMove'})}
             if(honey.position === 'lane3Set'){setHoney({...honey, position:lane3Time.animation, id:'honeyMove'})}
@@ -141,11 +144,11 @@ export const Race = () => {
     const winResultsCover = (winnerDisplay) => { if (winnerDisplay=== 'on'){
         return(<div className='winnerCover' id='winnerCover' >
             <h1 className='winnerText' id='winnerText' >WINNER!!!</h1>
-            <div className='winContainer'>
+            {/* <div className='winContainer'>
                 <div className={theWinner()+'Shadow'} id={theWinner()+'Shadow'} ></div>
                 <div className={the2ndWinner()+'Shadow'} id={the2ndWinner()+'Shadow'} ></div>
                 <div className={the3rdWinner()+'Shadow'} id={the3rdWinner()+'Shadow'} ></div>
-            </div>
+            </div> */}
             <div className='winContainer'>
                 <div className={theWinner()} id={theWinner()} alt={theWinner()} ></div>
                 <div className={the2ndWinner()} id={the2ndWinner()} alt={the2ndWinner()} ></div>
@@ -171,7 +174,7 @@ export const Race = () => {
         },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 1800)
         const reset = setTimeout(() =>
         { window.location.reload();
-        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 700000)
+        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 7000)
         return() => clearTimeout(goResult, reset);
         }},[go, resultScreen, raceResultsFinished])
     
@@ -185,8 +188,8 @@ export const Race = () => {
         let lane1 = document.getElementById('lane1input')
         lane1.focus();
         lane1.setAttribute('placeholder','enter sponsored option')
-            // let raceTime = raceTimeMaker(2.5,7.75);
-            let raceTime = raceTimeMaker(0,9);
+            let raceTime = raceTimeMaker(2.5,7.75);
+            // let raceTime = raceTimeMaker(0,9);
             raceTime > 9 ? setLane1Time({time:raceTime, animation:'lane1Slow'})
             :setLane1Time({time:raceTime, animation:'lane1Fast'});
         break;}
@@ -194,8 +197,8 @@ export const Race = () => {
         let lane2 = document.getElementById('lane2input')
         lane2.focus();
         lane2.setAttribute('placeholder','enter sponsored option')
-            // let raceTime = raceTimeMaker(1.5,8.15);
-            let raceTime = raceTimeMaker(0,9);
+            let raceTime = raceTimeMaker(1.5,8.15);
+            // let raceTime = raceTimeMaker(0,9);
             raceTime > 9 ? setLane2Time({time:raceTime, animation:'lane2Slow'})
             :setLane2Time({time:raceTime, animation:'lane2Fast'});
         break;}
@@ -203,8 +206,8 @@ export const Race = () => {
             let lane3 = document.getElementById('lane3input')
             lane3.focus();
             lane3.setAttribute('placeholder','enter sponsored option')
-            // let raceTime = raceTimeMaker(2,7.95);
-            let raceTime = raceTimeMaker(0,9);
+            let raceTime = raceTimeMaker(2,7.95);
+            // let raceTime = raceTimeMaker(0,9);
             raceTime > 9 ? setLane3Time({time:raceTime, animation:'lane3Slow'})
             :setLane3Time({time:raceTime, animation:'lane3Fast'});
         break;} 
@@ -212,27 +215,23 @@ export const Race = () => {
         let lane4 = document.getElementById('lane4input')
         lane4.focus();
         lane4.setAttribute('placeholder','enter sponsored option')
-            // let raceTime = raceTimeMaker(2.5,7.75);
-            let raceTime = raceTimeMaker(0,9);
+            let raceTime = raceTimeMaker(2.5,7.75);
+            // let raceTime = raceTimeMaker(0,9);
             raceTime > 9 ? setLane4Time({time:raceTime, animation:'lane4Slow'})
             :setLane4Time({time:raceTime, animation:'lane4Fast'});
         break;}
         case 'setLane5': { setFoxy({...foxy,position:'lane5Set', id:'foxyMove'})
             let lane5 = document.getElementById('lane5input')
-            window.scrollTo({
-                top: 190,
-                left: 0,
-                behavior: 'smooth'
-              });
             lane5.focus();
             lane5.setAttribute('placeholder','enter sponsored option')
-            // let raceTime = raceTimeMaker(2,7.95);
-            let raceTime = raceTimeMaker(0,9);
+            let raceTime = raceTimeMaker(2,7.95);
+            // let raceTime = raceTimeMaker(0,9);
             raceTime > 9 ? setLane5Time({time:raceTime, animation:'lane5Slow'})
             :setLane5Time({time:raceTime, animation:'lane5Fast'});
-        break;}
-        default:
-        }}
+            break;}
+            default:
+            }}
+            console.log(window.innerWidth)
 
     //function used to remove racer from race when user unclicks racers name//
     const removeRacer = (setLane) => {
@@ -311,7 +310,7 @@ export const Race = () => {
 
 
 return (
-<div className="container" style={{left:follow}}>
+<div className="container" id={follow}>
   <div className="inner-container">
     <div className="grid-container">
         <div className='titleShadow' >DECISION eRACER</div>
@@ -325,9 +324,9 @@ return (
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane1input').blur()}}}>
             <input id='lane1input' type='text' placeholder='' onChange={(e)=> setPup({...pup,sponsor:e.target.value})} />
         </form>
-        <div className='lane1' id={pup.position} style={lane1AnimationTime} >
+        {/* <div className='lane1' id={pup.position} style={lane1AnimationTime} >
             <div className='pupShadow' id={pup.id+'Shadow'} ></div>
-        </div>
+        </div> */}
         <div className='lane1' id={pup.position} style={lane1AnimationTime}>
             <div className='pup' id={pup.id} alt={pup.alt}></div>
         </div>
@@ -338,9 +337,9 @@ return (
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane2input').blur()}}}>
             <input id='lane2input' type='text' placeholder='' onChange={(e)=> setDan({...dan,sponsor:e.target.value})} />
         </form>
-        <div className='lane2' id={dan.position} style={lane2AnimationTime}>
+        {/* <div className='lane2' id={dan.position} style={lane2AnimationTime}>
             <div className='danShadow' id={dan.id+'Shadow'} ></div>
-        </div>
+        </div> */}
         <div className='lane2' id={dan.position} style={lane2AnimationTime}>
             <div className='dan' id={dan.id} alt={dan.alt} ></div>
         </div>
@@ -351,9 +350,9 @@ return (
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane3input').blur()}}}>
             <input id='lane3input' type='text' placeholder='' onChange={(e)=> setHoney({...honey,sponsor:e.target.value})} />
         </form>
-        <div className='lane3' id={honey.position} style={lane3AnimationTime}>
+        {/* <div className='lane3' id={honey.position} style={lane3AnimationTime}>
             <div className='honeyShadow' id={honey.id+'Shadow'} ></div>
-        </div>
+        </div> */}
         <div className='lane3' id={honey.position} style={lane3AnimationTime}>
             <div className='honey' id={honey.id} alt={honey.alt} ></div>
         </div>
@@ -364,9 +363,9 @@ return (
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane4input').blur()}}}>
             <input id='lane4input' type='text' placeholder='' onChange={(e)=> setGolden({...golden,sponsor:e.target.value})} />
         </form>
-        <div className='lane4' id={golden.position} style={lane4AnimationTime}>
+        {/* <div className='lane4' id={golden.position} style={lane4AnimationTime}>
             <div className='goldenShadow' id={golden.id + 'Shadow'} ></div>
-        </div>
+        </div> */}
         <div className='lane4' id={golden.position} style={lane4AnimationTime}>
             <div className='golden' id={golden.id} alt={golden.alt} ></div>
         </div>
@@ -377,9 +376,9 @@ return (
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane5input').blur()}}}>
             <input id='lane5input' type='text' placeholder='' onChange={(e)=> setFoxy({...foxy,sponsor:e.target.value})} />
         </form>
-        <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
+        {/* <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
             <div className='foxyShadow' id={foxy.id+'Shadow'} alt={foxy.alt} ></div>
-        </div>
+        </div> */}
         <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
             <div className='foxy' id={foxy.id} alt={foxy.alt} ></div>
         </div>
