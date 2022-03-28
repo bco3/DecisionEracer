@@ -1,22 +1,20 @@
 
 .grid-container {
-    position: absolute;
-    margin: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 0;
     display: grid;
+    position: relative;
+    margin: 0;
+    top: 50%;
+    left: 48%;
+    transform: translate(-75%, -50%);
+    padding: 0 0;
     width: 47.5rem;
-    height: 22.5rem;
-    /* border-radius: 1rem; */
+    height: 21.5rem;
     overflow: visible;
     grid-template-columns: 8rem 31.5rem 8rem;
-    grid-template-rows: 4.1rem 2.9rem 3rem 3rem 3.1rem 3.2rem 2rem; 
+    grid-template-rows: 4.2rem 2.9rem 2.9rem 2.9rem 3rem 3.1rem 2rem; 
     grid-row-gap: .2rem;
-    /* background: url('./img/track.jpg'); */
-    /* background-size: cover; */
-    justify-content: center; 
+    /* justify-self:  center; */
+    /* justify-content: center;  */
     align-content: center;
     justify-items: center;
     align-items: center;
@@ -38,8 +36,8 @@ laneSlow is for below average race time and laneFast is for above average race t
     height: 3rem;
 }
 #lane1Set{
-    transition: 1s linear;
-    transform: translate3d(-20.5rem, -7.7rem, 0rem);
+    transition: 2s linear;
+    transform: translate3d(-20.5rem, -7.2rem, 0rem);
 }
 #lane1Slow {
     animation-name: lane1Slow;
@@ -47,27 +45,27 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane1Slow {
     0% {
-        transform: translate3d(-20.5rem, -7.7rem, 0rem);
+        transform: translate3d(-20.5rem, -7.2rem, 0rem);
         animation-timing-function: cubic-bezier(.58,0,.75,.76);
     }
     17% {
-        transform: translate3d(-12.5rem, -7.5rem, 0rem);
+        transform: translate3d(-7.75rem, -7rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-3.5rem, -7.8rem, 0rem);
+    40% {
+        transform: translate3d(8rem, -7.3rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(6.5rem, -7.6rem, 0rem);
+    60% {
+        transform: translate3d(23.75rem, -7.1rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(14.5rem, -7.7rem, 0rem);
+    80% {
+        transform: translate3d(37.5rem, -7.2rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(24rem, -7.6rem, 0rem);
+        transform: translate3d(47.5rem, -7.1rem, 0rem);
     }
 
 }
@@ -77,32 +75,32 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane1Fast {
     0% {
-        transform: translate3d(-20.5rem, -7.7rem, 0rem);
+        transform: translate3d(-20.5rem, -7.2rem, 0rem);
         animation-timing-function: cubic-bezier(.58,0,.75,.76);
     }
-    17% {
-        transform: translate3d(-11.5rem, -7.5rem, 0rem);
+    23% {
+        transform: translate3d(-5.75rem, -7rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-3.5rem, -7.8rem, 0rem);
+    40% {
+        transform: translate3d(8rem, -7.3rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(5.5rem, -7.6rem, 0rem);
+    60% {
+        transform: translate3d(22.75rem, -7.1rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(14.5rem, -7.7rem, 0rem);
+    80% {
+        transform: translate3d(37.5rem, -7.2rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(24rem, -7.6rem, 0rem);
+        transform: translate3d(47.5rem, -7.2rem, 0rem);
     }
 
 }
 #lane1Out {
-    transform: translate3d(-22.9rem, -7.7rem, 0rem);
+    transform: translate3d(-25.9rem, -7.2rem, 0rem);
 }
 
 
@@ -118,8 +116,8 @@ laneSlow is for below average race time and laneFast is for above average race t
     height: 3rem;
 }
 #lane2Set{
-    transition: 2s ease-out;
-    transform: translate3d(-21.4rem, -6.2rem, 0rem);
+    transition: 2s ease-in-out;
+    transform: translate3d(-21.3rem, -5.7rem, 0rem);
 }
 #lane2Slow {
     animation-name: lane2Slow;
@@ -127,27 +125,27 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane2Slow {
     0% {
-        transform: translate3d(-21.4rem, -6.2rem, 0rem);
+        transform: translate3d(-21.3rem, -5.7rem, 0rem);
         animation-timing-function: ease-in;
     }
-    17% {
-        transform: translate3d(-17rem, -6.0rem, 0rem);
+    23% {
+        transform: translate3d(-11.25rem, -5.5rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-9rem, -6.4rem, 0rem);
+    40% {
+        transform: translate3d(2.5rem, -5.9rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(4rem, -6rem, 0rem);
+    60% {
+        transform: translate3d(21.25rem, -5.5rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(14.5rem, -6.2rem, 0rem);
+    80% {
+        transform: translate3d(37.9rem, -5.7rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(24.5rem, -6.2rem, 0rem);
+        transform: translate3d(48rem, -5.7rem, 0rem);
     }
 }
 #lane2Fast {
@@ -156,30 +154,30 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane2Fast {
     0% {
-        transform: translate3d(-21.4rem, -6.2rem, 0rem);
+        transform: translate3d(-21.3rem, -5.7rem, 0rem);
         animation-timing-function: ease-in;}
-    17% {
-        transform: translate3d(-16rem, -6.4rem, 0rem);
+    23% {
+        transform: translate3d(-10.25rem, -5.9rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-10rem, -6.2rem, 0rem);
+    40% {
+        transform: translate3d(1.5rem, -5.7rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(2rem, -5.8rem, 0rem);
+    60% {
+        transform: translate3d(19.25rem, -5.8rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(14.5rem, -6.2rem, 0rem);
+    80% {
+        transform: translate3d(37.9rem, -5.7rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(25rem, -6.2rem, 0rem);
+        transform: translate3d(48rem, -5.7rem, 0rem);
     }
 }
 #lane2Out {
-    transform: translate3d(-23rem, -6.2rem, 0rem);
+    transform: translate3d(-26rem, -5.7rem, 0rem);
 }
 
 
@@ -207,24 +205,24 @@ laneSlow is for below average race time and laneFast is for above average race t
         transform: translate3d(-19rem, -4.8rem, 0rem);
         animation-timing-function: cubic-bezier(.58,0,.75,.76);
     }
-    17% {
-        transform: translate3d(-12.5rem, -5.8rem, 0rem);
+    23% {
+        transform: translate3d(-6.75rem, -5.8rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-3.5rem, -5.4rem, 0rem);
+    40% {
+        transform: translate3d(8rem, -5.4rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(9rem, -6.3rem, 0rem);
+    60% {
+        transform: translate3d(26.25rem, -6.3rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(18rem, -5.7rem, 0rem);
+    80% {
+        transform: translate3d(40.6rem, -5.7rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -4.8rem, 0rem);
+        transform: translate3d(52rem, -4.8rem, 0rem);
     }
 
 }
@@ -237,29 +235,29 @@ laneSlow is for below average race time and laneFast is for above average race t
         transform: translate3d(-19rem, -4.8rem, 0rem);
         animation-timing-function: cubic-bezier(.58,0,.75,.76);
     }
-    17% {
-        transform: translate3d(-11.5rem, -5.5rem, 0rem);
+    23% {
+        transform: translate3d(-5.75rem, -5.5rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-3.5rem, -6rem, 0rem);
+    40% {
+        transform: translate3d(8rem, -6rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(5rem, -5.3rem, 0rem);
+    60% {
+        transform: translate3d(22.25rem, -5.3rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(18rem, -5.7rem, 0rem);
+    80% {
+        transform: translate3d(40.6rem, -5.7rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -4.8rem, 0rem);
+        transform: translate3d(52rem, -4.8rem, 0rem);
     }
 
 }
 #lane3Out {
-    transform: translate3d(-22.1rem, -5.3rem, 0rem);
+    transform: translate3d(-25.1rem, -5.3rem, 0rem);
 }
 
 
@@ -276,7 +274,7 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 #lane4Set{
     transition: 2s ease-out;
-    transform: translate3d(-20rem, -4.5rem, 0rem);
+    transform: translate3d(-20rem, -5rem, 0rem);
 }
 #lane4Slow {
     animation-name: lane4Slow;
@@ -284,27 +282,27 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane4Slow {
     0% {
-        transform: translate3d(-20rem, -4.5rem, 0rem);
+        transform: translate3d(-20rem, -5rem, 0rem);
         animation-timing-function: cubic-bezier(.58,0,.75,.76);
     }
-    17% {
-        transform: translate3d(-13rem, -4.6rem, 0rem);
+    23% {
+        transform: translate3d(-7.25rem, -5.1rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-4rem, -4.6rem, 0rem);
+    40% {
+        transform: translate3d(7.5rem, -5.1rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(6rem, -4.5rem, 0rem);
+    60% {
+        transform: translate3d(23.25rem, -5rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(17.8rem, -4.2rem, 0rem);
+    80% {
+        transform: translate3d(40.7rem, -4.7rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -4.4rem, 0rem);
+        transform: translate3d(52rem, -4.9rem, 0rem);
     }
 }
 #lane4Fast {
@@ -313,31 +311,31 @@ laneSlow is for below average race time and laneFast is for above average race t
 }
 @keyframes lane4Fast {
     0% {
-        transform: translate3d(-20rem, -4.5rem, 0rem);
+        transform: translate3d(-20rem, -5rem, 0rem);
         animation-timing-function: cubic-bezier(.58,0,.75,.76);
     }
-    17% {
-        transform: translate3d(-12rem, -4.3rem, 0rem);
+    23% {
+        transform: translate3d(-6.25rem, -4.8rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-2.5rem, -4.6rem, 0rem);
+    40% {
+        transform: translate3d(9rem, -5.1rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(9rem, -4.5rem, 0rem);
+    60% {
+        transform: translate3d(26.25rem, -5rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(17.7rem, -4.6rem, 0rem);
+    80% {
+        transform: translate3d(40.7rem, -5.1rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -4.4rem, 0rem);
+        transform: translate3d(52rem, -4.9rem, 0rem);
     }
 }
 #lane4Out {
-    transform: translate3d(-22.8rem, -4.5rem, 0rem);
+    transform: translate3d(-25.8rem, -5rem, 0rem);
 }
 
 
@@ -365,24 +363,24 @@ laneSlow is for below average race time and laneFast is for above average race t
         transform: translate3d(-19.7rem, -1rem, 0rem);
         animation-timing-function: ease-in;
     }
-    17% {
-        transform: translate3d(-9rem, -1.5rem, 0rem);
+    23% {
+        transform: translate3d(-3.25rem, -1.5rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(0rem, -0.5rem, 0rem);
+    40% {
+        transform: translate3d(11.5rem, -0.5rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(10rem, -1.5rem, 0rem);
+    60% {
+        transform: translate3d(27.25rem, -1.5rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(19rem, -1rem, 0rem);
+    80% {
+        transform: translate3d(42rem, -1rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -1rem, 0rem);
+        transform: translate3d(53rem, -1rem, 0rem);
     }
 }
 #lane5Fast {
@@ -394,26 +392,26 @@ laneSlow is for below average race time and laneFast is for above average race t
         transform: translate3d(-19.7rem, -1rem, 0rem);
         animation-timing-function: ease-in;
     }
-    17% {
-        transform: translate3d(-9rem, -1.5rem, 0rem);
+    23% {
+        transform: translate3d(-3.25rem, -1.5rem, 0rem);
         animation-timing-function: linear;
     }
-    34% {
-        transform: translate3d(-1rem, -0.5rem, 0rem);
+    40% {
+        transform: translate3d(10.5rem, -0.5rem, 0rem);
         animation-timing-function: linear;
     }
-    51% {
-        transform: translate3d(9rem, -1.5rem, 0rem);
+    60% {
+        transform: translate3d(26.25rem, -1.5rem, 0rem);
         animation-timing-function: linear;
     }
-    68% {
-        transform: translate3d(19rem, -1rem, 0rem);
+    80% {
+        transform: translate3d(42rem, -1rem, 0rem);
         animation-timing-function: linear;
     }
     100% {
-        transform: translate3d(26.5rem, -1rem, 0rem);
+        transform: translate3d(53rem, -1rem, 0rem);
     }
 }
 #lane5Out {
-    transform: translate3d(-22.7rem, -1rem, 0rem);
+    transform: translate3d(-25.7rem, -1rem, 0rem);
 }

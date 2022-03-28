@@ -1,60 +1,70 @@
 html {
-  /* height: 100%; */
+  /* left: 20%; */
+  height: 100%;
+  width: 100%;
   font-size: 16px;
   font-family: 'Open Sans', Impact, sans-serif;
   /* overflow: auto; */
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-style: italic;
 }
 
 body {
+  /* left: 20%; */
   /* height: 100%; */
-  background-color: #ffffff;
+  background-color: #00ccff;
   margin: 0;
   padding: 0;
   color: rgb(255, 255, 255);
-  font-style: italic;
   /* overflow: hidden; */
 }
-
-.startbutton {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  z-index: 15;
-  padding: 0;
-  color:rgba(0, 0, 0, 0.63);
-  cursor: pointer;
-}
+ 
 .container {
   display: grid;
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 90.5rem;
+  height: 43.5rem;
+  /* left: -100; */
+  /* right: -100; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* left: 20%; */
   /* height: auto; */
-  background-color: rgb(255, 255, 255);
-  align-items: center;
-  align-content: center;
-  /* justify-content: center; */
+  /* background-color: rgb(255, 0, 221); */
+  
+  /* align-items: center; */
+  /* align-content: center; */
+  /* justify-content: start; */
   /* justify-items: center; */
-  overflow: auto; 
-  /* overflow-y: auto;
-  overflow-x: hidden; */
+  /* overflow: visible;  */
+  overflow-y: auto;
+  overflow-x: hidden;
   /* scroll-snap-type: y mandatory; */
   /* scroll-padding-top: 1.5rem;   */
+  transition: left 8s ease-in-out;
 }
 
 .inner-container {
+  /* display: flex; */
+  /* top: 70%; */
+  /* left: 0px; */
+  /* right: 0px; */
+  /* overflow: visible; */
+  /* overflow-y: auto; */
+  /* overflow-x: hidden;  */
   position: relative;
-  left: -10%;
-  width: 72.5rem;
-  height: 47.5rem;
-  background: url('./img/trackfull.jpg');
-  background-size: cover;
-  background-color: rgb(255, 255, 255);
-  justify-self: center;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  /* overflow: visible;    */
+  width: 90.5rem;
+  height: 43.5rem;
+  background: url('./img/tracklongmobile.jpg') no-repeat center;
+  /* transform: translate3d(-10%, 0%, 0rem); */
+  /* background-color: rgb(200, 255, 0); */
+  /* background-size: cover; */
+  /* justify-self: center; */
+  /* align-self: center; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* justify-items: center;   */
 }
 
 /* win and winner are for only styling the final winners screen at the end of race */
@@ -62,25 +72,30 @@ body {
 .winnerCover {
   pointer-events: none;
   position: absolute;
-  margin: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  right:0;
   padding: 0;
   display: grid;
-  width: 114.5rem;
-  height: 75rem;
+  width: 113.5rem;
+  height: 54.5rem;
+  /* height: 100vh; */
   grid-template-columns: 8rem 31.5rem 8rem;
-  grid-template-rows: 5rem 4rem 4rem 4rem; 
-  background: url('./img/trackfull.jpg');
-  background-size: cover;
-  background-position: 39% 30%;
+  grid-template-rows: 3rem 5.5rem 3rem 3rem 3rem; 
+  background: url('./img/tracklongmobile.jpg');
+  background-size: 100%;
+  background-position: right -250px top 42px;
+  /* background-position: center; */
   opacity: 0%;
   overflow: visible;
-  justify-content: center; 
+  justify-content: end; 
   align-content: center;
   justify-items: center;
   align-items: center;
+  justify-self: center;
+  align-self: center;
   transition: opacity 0.5s ease-in;
 }
 
@@ -91,83 +106,46 @@ body {
 .winContainer {
   grid-area: 2/2;
   display: flex;
-  transform: translate3d(0, 0.6rem, 0);
+  /* transform: translate3d(1rem, -.5rem, 0); */
 }
-
-@media screen and (max-width: 1200px) { 
-  .inner-container {
-    position: relative;
-    width: 72.5rem;
-    height: 47.5rem;
-    background: url('./img/trackfullmobile.jpg');
-    background-size: cover;
-    background-color: rgb(255, 255, 255);
-    /* justify-self: left; */
-    align-self: center;
-    align-items: center;
-    /* justify-content: left; */
-    /* overflow: auto; */
-  }
-}
-
+/* 
 @media (max-width: 639px) and (orientation: portrait) { 
   html { 
     font-size: 14.5px;
-    /* overflow: hidden; */
+    overflow: hidden;
   }
   .container {
     transform: rotate(-90deg);
     overflow: auto;
   }
-}
+} */
 
-@media screen and (max-width: 740px) and (min-width: 716px) { 
-  html {
-    font-size: 15.2px;
+@media screen and (min-width: 1400px) {
+  .inner-container {
+    overflow: hidden; 
+    position: relative;
+    width: 90.5rem;
+    height: 43.5rem;
+    background: url('./img/tracklong.jpg') no-repeat center;
+    background-color: rgb(255, 255, 255);
   }
   .container {
+    display: grid;
+    position: absolute;
+    width: 100%;
     height: 100%;
-    overflow-y: auto; 
-    overflow-x: hidden; 
+    /* left: 0; */
+    /* height: auto; */
+    /* background-color: rgb(255, 0, 221); */
+    align-items: center;
+    /* align-content: center; */
+    justify-content: center;
+    /* justify-items: center; */
+    /* overflow: visible;  */
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+    /* scroll-snap-type: y mandatory; */
+    /* scroll-padding-top: 1.5rem;   */
   }
 }
 
-@media screen and (max-width: 715px) and (min-width: 691px) { 
-  html {
-    font-size: 14.7px;
-  }
-  .container {
-    overflow-y: auto; 
-    overflow-x: hidden; 
-  }
-}
-
-@media screen and (max-width: 690px) and (min-width: 666px) { 
-  html {
-    font-size: 14.2px;
-  }
-  .container {
-    overflow-y: visible; 
-    overflow-x: hidden; 
-  }
-}
-
-@media screen and (max-width: 665px) and (min-width: 640px){ 
-  html {
-    font-size: 14px;
-  }
-  .container {
-    overflow-y: visible; 
-    overflow-x: hidden; 
-  }
-}
-
-@media screen and (max-width: 639px) and (max-height: 400px){ 
-  html {
-    font-size: 14px;
-  }
-  .container {
-    overflow-y: visible; 
-    overflow-x: visible; 
-  }
-}

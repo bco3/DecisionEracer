@@ -9,7 +9,7 @@ export const Race = () => {
 
     //go is the start button, used to start the race, and inmpacts the timing for resultScreen//
     const [go,setGo] = useState('START');
-
+    const [follow, setFollow] = useState(0)
     //resultScreen is used to apply new JSX that is the results screen when race ends//
     const [resultScreen, setResultScreen] = useState('off')
 
@@ -93,14 +93,14 @@ export const Race = () => {
 
     //setting up results screen with winner or ties as well as their sponsored options//
     const raceResults = () => {
-        //rounder uses multiply 6.8 rather than 10 cause each racers moving animation crosses finish line at 68% of animation duration//
-        let rounder = (num) => { return Math.round(num * 6.8)/10}
+        //rounder uses multiply 8 rather than 10 cause each racers moving animation crosses finish line at 80% of animation duration//
+        let rounder = (num) => { return Math.round(num * 8)/10}
         let lane1 = ['pupWin', rounder(lane1Time.time),pup.sponsor];
         let lane2 = ['danWin', rounder(lane2Time.time),dan.sponsor];
         let lane3 = ['honeyWin', rounder(lane3Time.time),honey.sponsor];
         let lane4 = ['goldenWin', rounder(lane4Time.time),golden.sponsor];
         let lane5 = ['foxyWin', rounder(lane5Time.time),foxy.sponsor];
-        let firstLast = [['No Racers', 10,'No Sponsor'],['No Racers', 3,'No Sponsor']];
+        let firstLast = [['No Racers', 11,'No Sponsor'],['No Racers', 3,'No Sponsor']];
         const result = (lane, fastSlow) => {
             if (lane[1] > fastSlow[1][1]){fastSlow.splice(1,1,lane)}
             lane[1] < fastSlow[0][1] ? fastSlow.splice(0,1,lane)
@@ -113,24 +113,29 @@ export const Race = () => {
     }
 
     const raceResultsFinished = raceResults();
-    const theTieWinner = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][0] : null};
-    const theTieWinnerText = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][2] : null};
+    const the2ndWinner = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][0] : null};
+    const the2ndWinnerText = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][2] : null};
+    const the3rdWinner = () => {return raceResultsFinished.length > 3 ? raceResultsFinished[2][0] : null};
+    const the3rdWinnerText = () => {return raceResultsFinished.length > 3 ? raceResultsFinished[2][2] : null};
     const theWinner = () => {return raceResultsFinished[0][0]};
     const theWinnerText = () => {return raceResultsFinished[0][2]};
 
-    //starts race, gets racers moving//
+    //starts race, gets racers moving, and page to follow racers from left to right//
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+
     useEffect(() => {
         if(go ==='SET'){
-        const markSetGo = setTimeout(() =>
-        {setGo('GO!')
-        if(pup.position === 'lane1Set'){setPup({...pup, position:lane1Time.animation, id:'pupMove'})}
-        if(dan.position === 'lane2Set'){setDan({...dan, position:lane2Time.animation, id:'danMove'})}
-        if(honey.position === 'lane3Set'){setHoney({...honey, position:lane3Time.animation, id:'honeyMove'})}
-        if(golden.position === 'lane4Set'){setGolden({...golden, position:lane4Time.animation, id:'goldenMove'})}
-        if(foxy.position === 'lane5Set'){setFoxy({...foxy, position:lane5Time.animation, id:'foxyMove'})}
+        const markSetGo = setTimeout(() => {
+            setGo('GO!');
+            if(vw < 1400){setFollow(vw - 1448)}
+            if(pup.position === 'lane1Set'){setPup({...pup, position:lane1Time.animation, id:'pupMove'})}
+            if(dan.position === 'lane2Set'){setDan({...dan, position:lane2Time.animation, id:'danMove'})}
+            if(honey.position === 'lane3Set'){setHoney({...honey, position:lane3Time.animation, id:'honeyMove'})}
+            if(golden.position === 'lane4Set'){setGolden({...golden, position:lane4Time.animation, id:'goldenMove'})}
+            if(foxy.position === 'lane5Set'){setFoxy({...foxy, position:lane5Time.animation, id:'foxyMove'})}
         },1300)
-        return() => clearTimeout(markSetGo);
-        }},[go, pup, dan, honey, golden, foxy, lane1Time.animation, lane2Time.animation, lane3Time.animation, lane4Time.animation, lane5Time.animation])
+            return() => clearTimeout(markSetGo);
+        }},[go, pup, dan, honey, golden, foxy, lane1Time.animation, lane2Time.animation, lane3Time.animation, lane4Time.animation, lane5Time.animation, vw])
     
     //JSX for results screen displayed at end of race//
     const winResultsCover = (winnerDisplay) => { if (winnerDisplay=== 'on'){
@@ -138,20 +143,24 @@ export const Race = () => {
             <h1 className='winnerText' id='winnerText' >WINNER!!!</h1>
             <div className='winContainer'>
                 <div className={theWinner()+'Shadow'} id={theWinner()+'Shadow'} ></div>
-                <div className={theTieWinner()+'Shadow'} id={theTieWinner()+'Shadow'} ></div>
+                <div className={the2ndWinner()+'Shadow'} id={the2ndWinner()+'Shadow'} ></div>
+                <div className={the3rdWinner()+'Shadow'} id={the3rdWinner()+'Shadow'} ></div>
             </div>
             <div className='winContainer'>
                 <div className={theWinner()} id={theWinner()} alt={theWinner()} ></div>
-                <div className={theTieWinner()} id={theTieWinner()} alt={theTieWinner()} ></div>
+                <div className={the2ndWinner()} id={the2ndWinner()} alt={the2ndWinner()} ></div>
+                <div className={the3rdWinner()} id={the3rdWinner()} alt={the2ndWinner()} ></div>
             </div>
             <h2 className='winnerSponsor' id='winnerSponsor'>{theWinnerText()}</h2>
-            <h2 className='winner2Sponsor' id='winner2Sponsor'>{theTieWinnerText()}</h2>   
+            <h2 className='winner2Sponsor' id='winner2Sponsor'>{the2ndWinnerText()}</h2>   
+            <h2 className='winner3Sponsor' id='winner3Sponsor'>{the3rdWinnerText()}</h2>   
         </div>)
         } if (winnerDisplay === 'set'){
         return  <div className='winnerCover' >
               <h1 className='winnerText' >WINNER!!!</h1>
               <h2 className='winnerSponsor' >{theWinnerText()}</h2>
-              <h2 className='winner2Sponsor' >{theTieWinnerText()}</h2>   
+              <h2 className='winner2Sponsor' >{the2ndWinnerText()}</h2>   
+              <h2 className='winner3Sponsor' >{the3rdWinnerText()}</h2>   
         </div>}
     <div></div>;}
     //timing for when results screen starts and when it finishes and resets app//
@@ -159,15 +168,15 @@ export const Race = () => {
         if(go ==='GO!'){
         const goResult = setTimeout(() =>
         { setResultScreen('on')
-        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 800)
+        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 1800)
         const reset = setTimeout(() =>
         { window.location.reload();
-        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 7000)
+        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 700000)
         return() => clearTimeout(goResult, reset);
         }},[go, resultScreen, raceResultsFinished])
     
-    //racerVariable produces a degree of diviation from a racers average time of 7 seconds.
-    //racerPradictable is 7 seconds minus the average of racerVariable x(0.5) which is the average out come of Math.random.//
+    //racerVariable produces a degree of diviation from a racers average time of 9 seconds.
+    //racerPradictable is 9 seconds minus the average of racerVariable x(0.5) which is the average out come of Math.random.//
     const raceTimeMaker = (racerVariable,racerPradictable) => {return (Math.random()* racerVariable) + racerPradictable}
 
     const setupRacer = (setLane) => {
@@ -176,32 +185,36 @@ export const Race = () => {
         let lane1 = document.getElementById('lane1input')
         lane1.focus();
         lane1.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(2,6);
-            raceTime > 7 ? setLane1Time({time:raceTime, animation:'lane1Slow'})
+            // let raceTime = raceTimeMaker(2.5,7.75);
+            let raceTime = raceTimeMaker(0,9);
+            raceTime > 9 ? setLane1Time({time:raceTime, animation:'lane1Slow'})
             :setLane1Time({time:raceTime, animation:'lane1Fast'});
         break;}
         case 'setLane2': { setDan({...dan,position:'lane2Set', id:'danMove'})
         let lane2 = document.getElementById('lane2input')
         lane2.focus();
         lane2.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(1,6.4);
-            raceTime > 7 ? setLane2Time({time:raceTime, animation:'lane2Slow'})
+            // let raceTime = raceTimeMaker(1.5,8.15);
+            let raceTime = raceTimeMaker(0,9);
+            raceTime > 9 ? setLane2Time({time:raceTime, animation:'lane2Slow'})
             :setLane2Time({time:raceTime, animation:'lane2Fast'});
         break;}
         case 'setLane3': { setHoney({...honey,position:'lane3Set', id:'honeyMove'})
             let lane3 = document.getElementById('lane3input')
             lane3.focus();
             lane3.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(1.5,6.25);
-            raceTime > 7 ? setLane3Time({time:raceTime, animation:'lane3Slow'})
+            // let raceTime = raceTimeMaker(2,7.95);
+            let raceTime = raceTimeMaker(0,9);
+            raceTime > 9 ? setLane3Time({time:raceTime, animation:'lane3Slow'})
             :setLane3Time({time:raceTime, animation:'lane3Fast'});
         break;} 
         case 'setLane4': { setGolden({...golden,position:'lane4Set', id:'goldenMove'})
         let lane4 = document.getElementById('lane4input')
         lane4.focus();
         lane4.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(2,6);
-            raceTime > 7 ? setLane4Time({time:raceTime, animation:'lane4Slow'})
+            // let raceTime = raceTimeMaker(2.5,7.75);
+            let raceTime = raceTimeMaker(0,9);
+            raceTime > 9 ? setLane4Time({time:raceTime, animation:'lane4Slow'})
             :setLane4Time({time:raceTime, animation:'lane4Fast'});
         break;}
         case 'setLane5': { setFoxy({...foxy,position:'lane5Set', id:'foxyMove'})
@@ -213,8 +226,9 @@ export const Race = () => {
               });
             lane5.focus();
             lane5.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(1.5,6.25);
-            raceTime > 7 ? setLane5Time({time:raceTime, animation:'lane5Slow'})
+            // let raceTime = raceTimeMaker(2,7.95);
+            let raceTime = raceTimeMaker(0,9);
+            raceTime > 9 ? setLane5Time({time:raceTime, animation:'lane5Slow'})
             :setLane5Time({time:raceTime, animation:'lane5Fast'});
         break;}
         default:
@@ -297,7 +311,7 @@ export const Race = () => {
 
 
 return (
-<div className="container">
+<div className="container" style={{left:follow}}>
   <div className="inner-container">
     <div className="grid-container">
         <div className='titleShadow' >DECISION eRACER</div>
