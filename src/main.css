@@ -23,8 +23,8 @@ body {
 .container {
   display: grid;
   position: absolute;
-  width: 90.5rem;
-  height: 43.5rem;
+  width: 1448px;
+  height: 696px;
   /* left: -100; */
   /* right: -100; */
   /* width: 100%; */
@@ -65,9 +65,9 @@ body {
   /* overflow-y: auto; */
   /* overflow-x: hidden;  */
   position: relative;
-  width: 90.5rem;
+  width: 1448px;
   /* width: 1448px; */
-  height: 43.5rem;
+  height: 696px;
   /* height: 696px; */
   background: url('./img/tracklongmobile.jpg') no-repeat center;
   /* transform: translate3d(-10%, 0%, 0rem); */
@@ -92,11 +92,11 @@ body {
   right:0;
   padding: 0;
   display: grid;
-  width: 113.5rem;
-  height: 54.5rem;
+  width: 1816px;
+  height: 872px;
   /* height: 100vh; */
-  grid-template-columns: 8rem 31.5rem 8rem;
-  grid-template-rows: 3rem 5.5rem 3rem 3rem 3rem; 
+  grid-template-columns: 128px 504px 128px;
+  grid-template-rows: 48px 88px 48px 48px 48px; 
   background: url('./img/tracklongmobile.jpg');
   background-size: 100%;
   background-position: right -250px top 42px;
@@ -137,8 +137,8 @@ body {
   .inner-container {
     overflow: hidden; 
     position: relative;
-    width: 90.5rem;
-    height: 43.5rem;
+    width: 1448px;
+    height: 696px;
     background: url('./img/tracklong.jpg') no-repeat center;
     background-color: rgb(255, 255, 255);
   }
@@ -170,11 +170,11 @@ body {
     right:0;
     padding: 0;
     display: grid;
-    width: 113.5rem;
-    height: 54.5rem;
+    width: 1816px;
+    height: 872px;
     /* height: 100vh; */
-    grid-template-columns: 8rem 31.5rem 8rem;
-    grid-template-rows: 3rem 5.5rem 3rem 3rem 3rem; 
+    grid-template-columns: 128px 504px 128px;
+    grid-template-rows: 48px 88px 48px 48px 48px; 
     background: url('./img/tracklong.jpg');
     background-size: cover;
     /* background-position: right -250px top 42px; */
@@ -194,8 +194,8 @@ body {
 @media screen and (min-height: 696px) and (max-width: 1399px) {
   .inner-container {
     position: relative;
-    width: 90.5rem;
-    height: 43.5rem;
+    width: 1448px;
+    height: 696px;
     background: url('./img/tracklong.jpg') no-repeat center;
     background-size: cover;
   }
@@ -209,11 +209,11 @@ body {
     right:0;
     padding: 0;
     display: grid;
-    width: 113.5rem;
-    height: 54.5rem;
+    width: 1816px;
+    height: 872px;
     /* height: 100vh; */
-    grid-template-columns: 8rem 31.5rem 8rem;
-    grid-template-rows: 3rem 5.5rem 3rem 3rem 3rem; 
+    grid-template-columns: 128px 504px 128px;
+    grid-template-rows: 48px 88px 48px 48px 48px; 
     background: url('./img/tracklong.jpg');
     background-size: 100%;
     background-position: right -250px top 42px;
