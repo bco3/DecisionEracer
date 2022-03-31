@@ -1,25 +1,3 @@
-
-.grid-container {
-    display: grid;
-    position: relative;
-    margin: 0;
-    top: 50%;
-    left: 48%;
-    transform: translate(-75%, -50%);
-    padding: 0 0;
-    width: 760px;
-    height: 344px;
-    overflow: visible;
-    grid-template-columns: 128px 504px 128px;
-    grid-template-rows: 67.2px 46.4px 46.4px 46.4px 48px 49.6px 32px; 
-    grid-row-gap: 3.2px;
-    /* justify-self:  center; */
-    /* justify-content: center;  */
-    align-content: center;
-    justify-items: center;
-    align-items: center;
-}
-
 /* lane is used to position the driver in that lane and move them across the track, 
 laneSet sets them in starting position, laneOut is for when they're not set to race, 
 laneSlow is for below average race time and laneFast is for above average race time */

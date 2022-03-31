@@ -79,9 +79,12 @@ export const Race = () => {
     const lane5AnimationTime = { animationDuration: lane5Time.time + 's'}
 
     //when start is clicked, triggers useEffects to countdown and start race.//
+    const startPosition=()=>{window.scrollTo(30, 190);}
+    // const startPosition=()=>{document.querySelector('html').scrollLeft = 0;}
+
     const handleGo = (e) => {
         e.target.id = 'go';
-        window.scrollTo({top:190, left: 0, behavior: 'smooth'});
+        startPosition();
         setGo('MARK');
     }
     useEffect(() => {
@@ -144,11 +147,11 @@ export const Race = () => {
     const winResultsCover = (winnerDisplay) => { if (winnerDisplay=== 'on'){
         return(<div className='winnerCover' id='winnerCover' >
             <h1 className='winnerText' id='winnerText' >WINNER!!!</h1>
-            {/* <div className='winContainer'>
+            <div className='winContainer'>
                 <div className={theWinner()+'Shadow'} id={theWinner()+'Shadow'} ></div>
                 <div className={the2ndWinner()+'Shadow'} id={the2ndWinner()+'Shadow'} ></div>
                 <div className={the3rdWinner()+'Shadow'} id={the3rdWinner()+'Shadow'} ></div>
-            </div> */}
+            </div>
             <div className='winContainer'>
                 <div className={theWinner()} id={theWinner()} alt={theWinner()} ></div>
                 <div className={the2ndWinner()} id={the2ndWinner()} alt={the2ndWinner()} ></div>
@@ -308,7 +311,6 @@ export const Race = () => {
         return () => clearTimeout(clickToIdle);}
         },[foxy, go])
 
-
 return (
 <div className="container" id={follow}>
   <div className="inner-container">
@@ -321,12 +323,12 @@ return (
         <input type='checkbox' id='setLane1' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane1' htmlFor='setLane1'>PUPSTAR</label>
         <form className='lane1input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane1input').blur()}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane1input').blur(); startPosition();}}}>
             <input id='lane1input' type='text' placeholder='' onChange={(e)=> setPup({...pup,sponsor:e.target.value})} />
         </form>
-        {/* <div className='lane1' id={pup.position} style={lane1AnimationTime} >
+        <div className='lane1' id={pup.position} style={lane1AnimationTime} >
             <div className='pupShadow' id={pup.id+'Shadow'} ></div>
-        </div> */}
+        </div>
         <div className='lane1' id={pup.position} style={lane1AnimationTime}>
             <div className='pup' id={pup.id} alt={pup.alt}></div>
         </div>
@@ -334,12 +336,12 @@ return (
         <input type='checkbox' id='setLane2' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane2' htmlFor='setLane2'>SPEEDY</label>
         <form className='lane2input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane2input').blur()}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane2input').blur(); startPosition();}}}>
             <input id='lane2input' type='text' placeholder='' onChange={(e)=> setDan({...dan,sponsor:e.target.value})} />
         </form>
-        {/* <div className='lane2' id={dan.position} style={lane2AnimationTime}>
+        <div className='lane2' id={dan.position} style={lane2AnimationTime}>
             <div className='danShadow' id={dan.id+'Shadow'} ></div>
-        </div> */}
+        </div>
         <div className='lane2' id={dan.position} style={lane2AnimationTime}>
             <div className='dan' id={dan.id} alt={dan.alt} ></div>
         </div>
@@ -347,12 +349,12 @@ return (
         <input type='checkbox' id='setLane3' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane3' htmlFor='setLane3'>B-LINE</label>
         <form className='lane3input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane3input').blur()}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane3input').blur(); startPosition();}}}>
             <input id='lane3input' type='text' placeholder='' onChange={(e)=> setHoney({...honey,sponsor:e.target.value})} />
         </form>
-        {/* <div className='lane3' id={honey.position} style={lane3AnimationTime}>
+        <div className='lane3' id={honey.position} style={lane3AnimationTime}>
             <div className='honeyShadow' id={honey.id+'Shadow'} ></div>
-        </div> */}
+        </div>
         <div className='lane3' id={honey.position} style={lane3AnimationTime}>
             <div className='honey' id={honey.id} alt={honey.alt} ></div>
         </div>
@@ -360,12 +362,12 @@ return (
         <input type='checkbox' id='setLane4' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane4' htmlFor='setLane4'>SK8CUB</label>
         <form className='lane4input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane4input').blur()}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane4input').blur(); startPosition();}}}>
             <input id='lane4input' type='text' placeholder='' onChange={(e)=> setGolden({...golden,sponsor:e.target.value})} />
         </form>
-        {/* <div className='lane4' id={golden.position} style={lane4AnimationTime}>
+        <div className='lane4' id={golden.position} style={lane4AnimationTime}>
             <div className='goldenShadow' id={golden.id + 'Shadow'} ></div>
-        </div> */}
+        </div>
         <div className='lane4' id={golden.position} style={lane4AnimationTime}>
             <div className='golden' id={golden.id} alt={golden.alt} ></div>
         </div>
@@ -373,12 +375,12 @@ return (
         <input type='checkbox' id='setLane5' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane5' htmlFor='setLane5'>FOXY</label>
         <form className='lane5input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane5input').blur()}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane5input').blur(); startPosition();}}}>
             <input id='lane5input' type='text' placeholder='' onChange={(e)=> setFoxy({...foxy,sponsor:e.target.value})} />
         </form>
-        {/* <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
+        <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
             <div className='foxyShadow' id={foxy.id+'Shadow'} alt={foxy.alt} ></div>
-        </div> */}
+        </div>
         <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
             <div className='foxy' id={foxy.id} alt={foxy.alt} ></div>
         </div>
