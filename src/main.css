@@ -1,57 +1,115 @@
 html {
+  /* touch-action: none; */
   /* left: 20%; */
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* position: relative; */
+  /* position: absolute; */
+  /* min-height: 696px; */
+  /* min-width: 1448px; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* top: 0; */
+  /* padding: 0; */
+  /* margin: 0; */
   font-size: 16px;
   font-family: 'Open Sans', Impact, sans-serif;
-  overflow: auto;
+  /* overflow: scroll; */
+  /* overflow: visible; */
+  overflow: hidden;
   /* overflow-y: auto; */
-  /* overflow-x: hidden; */
+  /* overflow-x: auto; */
   font-style: italic;
 }
 
 body {
-  /* left: 20%; */
-  /* height: 100%; */
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-  color: rgb(255, 255, 255);
-  /* overflow: hidden; */
-}
- 
-.container {
+  /* overscroll-behavior: none; */
+  /* touch-action: none; */
+  /* position: relative; */
+  /* display: flex; */
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  /* position: absolute; */
+  /* left: 200px; */
+  height: 100%;
+  width: 100%;
+  /* top:0; */
+  /* max-width: 1448px; */
+  /* max-height: 696px; */
+  /* overflow: visible; */
+  /* overflow: auto; */
+  /* overflow-x: visible; */
+  /* background-color: #ffffff; */
+  overflow: hidden;
+  /* justify-content: start; */
+  /* align-items: end; */
+  /* align-content: center; */
+  margin: 0;
+  /* padding: 0; */
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+}
+
+#root {
+  /* position: relative; */
+  /* position: absolute; */
+  /* max-height: 696px; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* min-width: 100%; */
+  /* display: grid; */
+  /* min-width: 1448px; */
+  /* min-height: 696px; */
+  /* top: 0; */
+  /* padding: 0; */
+  /* margin: 0; */
+  /* overflow: visible; */
+  overflow: hidden;
+  background-color: aquamarine;
+}
+
+.container {
+  /* touch-action: none; */
+  display: grid;
+  /* position: relative; */
   position: absolute;
   width: 1448px;
   height: 696px;
-  /* left: -100; */
+  /* left: 200px; */
   /* right: -100; */
   /* width: 100%; */
   /* height: 100%; */
   /* overflow: visible;  */
-  overflow-y: hidden;
-  overflow-x: hidden;
+  /* overflow-y: hidden; */
+  overflow: hidden;
   /* scroll-snap-type: y mandatory; */
   /* scroll-padding-top: 1.5rem;   */
 }
+
 #follow {
   animation: raceTracking 8s ease-in-out 3s forwards;
 }
+
 @keyframes raceTracking {
-  from{
-    transform: translate3d(0px,0px,0px)
-  }
-  to{
-    transform: translate3d(var(--tracking, 0px),0px,0px)
+  100% {
+    transform: translate3d(var(--tracking, 0px), 0px, 0px)
   }
 }
 
+#winCenter {
+  left: 50%;
+  transform: translate3d(-50%, 0px, 0px);
+}
+
+
 .inner-container {
+  /* touch-action: none; */
+  /* left: 100px; */
   /* display: flex; */
-  overflow: hidden;
+  /* overflow: hidden; */
   /* overflow-y: auto; */
   /* overflow-x: hidden;  */
+  overflow: visible;
   position: relative;
   width: 1448px;
   height: 696px;
@@ -60,18 +118,20 @@ body {
 }
 
 .grid-container {
+  /* touch-action: none; */
   display: grid;
   position: relative;
   margin: 0;
   top: 50%;
   left: 48%;
   transform: translate(-75%, -50%);
-  padding: 0 0;
+  padding: 0;
   width: 760px;
   height: 344px;
-  /* overflow: visible; */
+  overflow: visible;
+  /* overflow: hidden; */
   grid-template-columns: 128px 504px 128px;
-  grid-template-rows: 67.2px 46.4px 46.4px 46.4px 48px 49.6px 32px; 
+  grid-template-rows: 67.2px 46.4px 46.4px 46.4px 48px 49.6px 32px;
   grid-row-gap: 3.2px;
   /* justify-self:  center; */
   /* justify-content: center;  */
@@ -83,33 +143,40 @@ body {
 /* win and winner are for only styling the final winners screen at the end of race */
 
 .winnerCover {
-  pointer-events: none;
+  /* pointer-events: none; */
   position: absolute;
+  /* position: fixed; */
+  /* position: relative; */
   margin: 0;
   /* top: 50%; */
-  /* left: 50%; */
+  /* left: 25%; */
   /* transform: translate(-50%, -50%); */
-  right:0;
+  /* transform: translate3d(0px, 40px, 0px); */
+  /* right:0; */
   padding: 0;
   display: grid;
   width: 1816px;
   height: 872px;
+  /* width: 1448px; */
+  /* height: 696px; */
   /* height: 100vh; */
-  grid-template-columns: 128px 504px 128px;
-  grid-template-rows: 48px 88px 48px 48px 48px; 
+  /* grid-gap: 5px; */
+  grid-template-columns: 1fr 504px 1fr;
+  grid-template-rows: 45px 70px 43px 43px 43px 43px;
   background: url('./img/tracklongmobile.jpg');
   background-size: 100%;
-  background-position: right -250px top 42px;
-  /* background-position: center; */
+  /* background-position: right -250px top 42px; */
+  background-position: center;
   opacity: 0%;
-  overflow: visible;
-  justify-content: end; 
+  /* overflow: visible; */
+  overflow: hidden;
+  justify-content: center;
   align-content: center;
   justify-items: center;
   align-items: center;
   justify-self: center;
   align-self: center;
-  transition: opacity 0.5s ease-in;
+  /* transition: opacity 0.5s ease-in; */
 }
 
 #winnerCover {
@@ -117,20 +184,29 @@ body {
 }
 
 .winContainer {
+  /* margin: 20px; */
+  /* padding: 20px; */
   grid-area: 2/2;
   display: flex;
+  transform: scale3d(-1.1, 1.1, 1.1) translate3d(-400px, 70px, 0px);
+  transition: 2.5s ease-in-out;
+}
+
+#winnerEnter {
+  transform: scale3d(-1.1, 1.1, 1.1) translate3d(0px, 70px, 0px);
 }
 
 
 @media screen and (min-width: 1400px) {
   .inner-container {
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
     width: 1448px;
     height: 696px;
     background: url('./img/tracklong.jpg') no-repeat center;
     background-color: rgb(255, 255, 255);
   }
+
   .container {
     display: grid;
     position: absolute;
@@ -139,72 +215,34 @@ body {
     align-items: center;
     justify-content: center;
   }
+
   .winnerCover {
-    pointer-events: none;
+    /* pointer-events: none; */
     position: absolute;
     margin: 0;
     /* top: 50%; */
     /* left: 50%; */
     /* transform: translate(-50%, -50%); */
-    right:0;
+    right: 0;
     padding: 0;
     display: grid;
     width: 1816px;
     height: 872px;
     /* height: 100vh; */
     grid-template-columns: 128px 504px 128px;
-    grid-template-rows: 48px 88px 48px 48px 48px; 
+    grid-template-rows: 48px 88px 48px 48px 48px;
     background: url('./img/tracklong.jpg');
     background-size: cover;
     /* background-position: right -250px top 42px; */
     background-position: center;
     opacity: 0%;
     overflow: hidden;
-    justify-content: center; 
+    justify-content: center;
     align-content: center;
     justify-items: center;
     align-items: center;
     justify-self: center;
     align-self: center;
-    transition: opacity 0.5s ease-in;
-  }
-}
-
-@media screen and (min-height: 696px) and (max-width: 1399px) {
-  .inner-container {
-    position: relative;
-    width: 1448px;
-    height: 696px;
-    background: url('./img/tracklong.jpg') no-repeat center;
-    background-size: cover;
-  }
-  .winnerCover {
-    pointer-events: none;
-    position: absolute;
-    margin: 0;
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    right:0;
-    padding: 0;
-    display: grid;
-    width: 1816px;
-    height: 872px;
-    /* height: 100vh; */
-    grid-template-columns: 128px 504px 128px;
-    grid-template-rows: 48px 88px 48px 48px 48px; 
-    background: url('./img/tracklong.jpg');
-    background-size: 100%;
-    background-position: right -250px top 42px;
-    /* background-position: center; */
-    opacity: 0%;
-    overflow: visible;
-    justify-content: end; 
-    align-content: center;
-    justify-items: center;
-    align-items: center;
-    justify-self: center;
-    align-self: center;
-    transition: opacity 0.5s ease-in;
+    /* transition: opacity 0.5s ease-in; */
   }
 }

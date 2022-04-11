@@ -12,7 +12,7 @@ export const Race = () => {
     const [follow, setFollow] = useState('')
     //resultScreen is used to apply new JSX that is the results screen when race ends//
     const [resultScreen, setResultScreen] = useState('off')
-
+    const [winnerEnter, setWinnerEnter] = useState('')
     //laneTime stores pre set race time results for each lanes active racer and are predetermined by selecting the racer.
     //laneTime animation is used to setup Slow or Fast racer animation to JSX css//
     const [lane1Time,setLane1Time] = useState({time:null, animation:''});
@@ -32,7 +32,8 @@ export const Race = () => {
             alt: 'Wheel chair puppy',
             id: 'pup',
             position: 'lane1Out',
-            sponsor: ''
+            sponsor: '',
+            color: 'rgb(1, 1, 221)'
         });
     const [dan, setDan] = useState(
         {
@@ -41,7 +42,8 @@ export const Race = () => {
             alt: 'Race car sloth',
             id: 'dan',
             position: 'lane2Out',
-            sponsor: ''
+            sponsor: '',
+            color: 'rgb(221, 1, 56)'
         });
     const [honey, setHoney] = useState(
         {
@@ -50,7 +52,8 @@ export const Race = () => {
             alt: 'Bumble bee',
             id: 'honey',
             position: 'lane3Out',
-            sponsor: ''
+            sponsor: '',
+            color: 'rgb(255, 196, 0)'
         });
     const [golden, setGolden] = useState(
         {
@@ -59,7 +62,8 @@ export const Race = () => {
             alt: 'Skateboard bear',
             id: 'golden',
             position: 'lane4Out',
-            sponsor: ''
+            sponsor: '',
+            color: 'rgb(0, 255, 128)'
         });
     const [foxy, setFoxy] = useState(
         {
@@ -68,7 +72,8 @@ export const Race = () => {
             alt: 'Fox',
             id: 'foxy',
             position: 'lane5Out',
-            sponsor: ''
+            sponsor: '',
+            color: 'rgb(255, 81, 0)'
         });
 
     //laneAnimationTime is used to prepare racers times to be used in JSX variable for animation-duration://
@@ -79,12 +84,57 @@ export const Race = () => {
     const lane5AnimationTime = { animationDuration: lane5Time.time + 's'}
 
     //when start is clicked, triggers useEffects to countdown and start race.//
-    const startPosition=()=>{window.scrollTo(30, 190);}
-    // const startPosition=()=>{document.querySelector('html').scrollLeft = 0;}
+
+    // var iframe = document.createElement('iframe');
+    // iframe.style.display = 'none';
+    // document.body.appendChild(iframe);
+    // window.altScrollTo = iframe.contentWindow.scrollTo;
+    // const startPosition=()=>{window.altScrollTo.call(window, 100, 100);}
+
+    // const startPosition=()=>{window.scrollTo({top:185, left:0, behavior: 'smooth'});}
+    const racePosition=()=>{window.scrollTo({left:40, top:185, behavior: 'smooth'});}
+    const startPosition=()=>{ return setTimeout(function(){window.scrollTo(0,185);},100) }
+    
+    // useEffect(() => { const scrollStart = setTimeout(() =>
+    //     { window.scrollTo({left:30, top:185, behavior: 'smooth'});
+    //     },1800)
+    //     return() => clearTimeout(scrollStart);
+    //     },[])
+
+    useEffect(() => {
+        // window.addEventListener('touchmove', e => {
+        //       e.preventDefault();
+        //       e.stopImmediatePropagation();
+        //   }, { passive: false });
+        startPosition();
+      }, [])
+
+    //   const [scrollPosition, setScrollPosition] = useState(0);
+    //   const handleScroll = () => {
+    //     const position = window.pageYOffset;
+    //     setScrollPosition(position);
+    //   };
+    
+    //   useEffect(() => {
+    //     window.addEventListener("scroll", handleScroll);
+    
+    //     return () => {
+    //       window.removeEventListener("scroll", handleScroll);
+    //     };
+    //   }, []);
+    // window.addEventListener("load", function() {
+    //     setTimeout(function() {
+    //       var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    //       if (scrollPos < 1) {
+    //         window.scrollTo(0,190);
+    //       }
+    //     }, 0);
+    //   });
+    // const startPosition=()=>{document.body.scrollLeft = 150;}
 
     const handleGo = (e) => {
         e.target.id = 'go';
-        startPosition();
+        racePosition();
         setGo('MARK');
     }
     useEffect(() => {
@@ -100,12 +150,12 @@ export const Race = () => {
     const raceResults = () => {
         //rounder uses multiply 8 rather than 10 cause each racers moving animation crosses finish line at 80% of animation duration//
         let rounder = (num) => { return Math.round(num * 8)/10}
-        let lane1 = ['pupWin', rounder(lane1Time.time),pup.sponsor];
-        let lane2 = ['danWin', rounder(lane2Time.time),dan.sponsor];
-        let lane3 = ['honeyWin', rounder(lane3Time.time),honey.sponsor];
-        let lane4 = ['goldenWin', rounder(lane4Time.time),golden.sponsor];
-        let lane5 = ['foxyWin', rounder(lane5Time.time),foxy.sponsor];
-        let firstLast = [['No Racers', 11,'No Sponsor'],['No Racers', 3,'No Sponsor']];
+        let lane1 = ['pup', rounder(lane1Time.time),pup.sponsor, pup.id, pup.color];
+        let lane2 = ['dan', rounder(lane2Time.time),dan.sponsor, dan.id, dan.color];
+        let lane3 = ['honey', rounder(lane3Time.time),honey.sponsor, honey.id, honey.color];
+        let lane4 = ['golden', rounder(lane4Time.time),golden.sponsor, golden.id, golden.color];
+        let lane5 = ['foxy', rounder(lane5Time.time),foxy.sponsor, foxy.id, foxy.color];
+        let firstLast = [['No Racers', 11,'No Sponsor', {}],['No Racers', 3,'No Sponsor', {}]];
         const result = (lane, fastSlow) => {
             if (lane[1] > fastSlow[1][1]){fastSlow.splice(1,1,lane)}
             lane[1] < fastSlow[0][1] ? fastSlow.splice(0,1,lane)
@@ -119,21 +169,27 @@ export const Race = () => {
 
     const raceResultsFinished = raceResults();
     const the2ndWinner = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][0] : null};
+    const the2ndWinnerObj = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][3] : null};
+    const the2ndWinnerColor = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][4] : null};
     const the2ndWinnerText = () => {return raceResultsFinished.length > 2 ? raceResultsFinished[1][2] : null};
     const the3rdWinner = () => {return raceResultsFinished.length > 3 ? raceResultsFinished[2][0] : null};
+    const the3rdWinnerObj = () => {return raceResultsFinished.length > 3 ? raceResultsFinished[2][3] : null};
+    const the3rdWinnerColor = () => {return raceResultsFinished.length > 3 ? raceResultsFinished[2][4] : null};
     const the3rdWinnerText = () => {return raceResultsFinished.length > 3 ? raceResultsFinished[2][2] : null};
     const theWinner = () => {return raceResultsFinished[0][0]};
+    const theWinnerObj = () => {return raceResultsFinished[0][3]};
+    const theWinnerColor = () => {return raceResultsFinished[0][4]};
     const theWinnerText = () => {return raceResultsFinished[0][2]};
-
+    const winTitle = () => {return raceResultsFinished.length > 3 ? '3 WAY TIE!!!' : raceResultsFinished.length > 2 ? 'TIE!!!' : <font style={{color:theWinnerColor()}}>WINNER!!!</font>}
     //starts race, gets racers moving, and page to follow racers from left to right//
-    // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    const vw = Math.max(window.innerWidth || 0, window.visualViewport.width || 0, document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    // const viewWidth = Math.max(window.visualViewport.width || 0, document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    const viewWidth = Math.min(window.visualViewport.width, document.documentElement.clientWidth, window.innerWidth)
 
     useEffect(() => {
         if(go ==='SET'){
         const markSetGo = setTimeout(() => {
             setGo('GO!');
-            if(vw < 1400){document.querySelector('#follow').style.setProperty('--tracking',vw - 1448 + 'px');}
+            if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1448 + window.pageXOffset + 'px');}
             if(pup.position === 'lane1Set'){setPup({...pup, position:lane1Time.animation, id:'pupMove'})}
             if(dan.position === 'lane2Set'){setDan({...dan, position:lane2Time.animation, id:'danMove'})}
             if(honey.position === 'lane3Set'){setHoney({...honey, position:lane3Time.animation, id:'honeyMove'})}
@@ -141,45 +197,72 @@ export const Race = () => {
             if(foxy.position === 'lane5Set'){setFoxy({...foxy, position:lane5Time.animation, id:'foxyMove'})}
         },1300)
             return() => clearTimeout(markSetGo);
-        }},[go, pup, dan, honey, golden, foxy, lane1Time.animation, lane2Time.animation, lane3Time.animation, lane4Time.animation, lane5Time.animation, vw])
-    
+        }},[go, pup, dan, honey, golden, foxy, lane1Time.animation, lane2Time.animation, lane3Time.animation, lane4Time.animation, lane5Time.animation, viewWidth])
+
+        const handleRematchClick = () =>{
+            setFollow('');
+            setResultScreen('off');
+            setWinnerEnter('');
+            startPosition();
+            document.querySelector('.go').id = 'start';
+            const allRacerLanes = [document.getElementById('setLane1'), document.getElementById('setLane2'),
+            document.getElementById('setLane3'), document.getElementById('setLane4'), document.getElementById('setLane5')]
+            allRacerLanes.forEach((e) => {
+                e.checked ? setupRacer(e.id) : removeRacer(e.id);
+            });
+        };
+        const handleResetClick = () => window.location.reload();
     //JSX for results screen displayed at end of race//
     const winResultsCover = (winnerDisplay) => { if (winnerDisplay=== 'on'){
         return(<div className='winnerCover' id='winnerCover' >
-            <h1 className='winnerText' id='winnerText' >WINNER!!!</h1>
-            <div className='winContainer'>
-                <div className={theWinner()+'Shadow'} id={theWinner()+'Shadow'} ></div>
-                <div className={the2ndWinner()+'Shadow'} id={the2ndWinner()+'Shadow'} ></div>
-                <div className={the3rdWinner()+'Shadow'} id={the3rdWinner()+'Shadow'} ></div>
+            <h1 className='winnerText' id='winnerText'>{winTitle()}</h1>
+            <div className='winContainer' id={winnerEnter}>
+                <div className={theWinner()+'Shadow'} id={theWinnerObj() +'Shadow'} ></div>
+                <div className={the2ndWinner()+'Shadow'} id={the2ndWinnerObj() +'Shadow'} ></div>
+                <div className={the3rdWinner()+'Shadow'} id={the3rdWinnerObj() +'Shadow'} ></div>
             </div>
-            <div className='winContainer'>
-                <div className={theWinner()} id={theWinner()} alt={theWinner()} ></div>
-                <div className={the2ndWinner()} id={the2ndWinner()} alt={the2ndWinner()} ></div>
-                <div className={the3rdWinner()} id={the3rdWinner()} alt={the2ndWinner()} ></div>
+            <div className='winContainer' id={winnerEnter}>
+                <div className={theWinner()} id={theWinnerObj()} alt={theWinner()} ></div>
+                <div className={the2ndWinner()} id={the2ndWinnerObj()} alt={the2ndWinner()} ></div>
+                <div className={the3rdWinner()} id={the3rdWinnerObj()} alt={the2ndWinner()} ></div>
             </div>
-            <h2 className='winnerSponsor' id='winnerSponsor'>{theWinnerText()}</h2>
-            <h2 className='winner2Sponsor' id='winner2Sponsor'>{the2ndWinnerText()}</h2>   
-            <h2 className='winner3Sponsor' id='winner3Sponsor'>{the3rdWinnerText()}</h2>   
-        </div>)
+            <h2 className='winnerSponsor' id='winnerSponsor' style={{color:theWinnerColor()}}>{theWinnerText()}</h2>
+            <h2 className='winner2Sponsor' id='winner2Sponsor'style={{color:the2ndWinnerColor()}}>{the2ndWinnerText()}</h2>   
+            <h2 className='winner3Sponsor' id='winner3Sponsor'style={{color:the3rdWinnerColor()}}>{the3rdWinnerText()}</h2> 
+            <div className='winButtons' >
+            <div className='reset' id='reset' onClick={handleResetClick}>RESTART</div>
+            <div className='rematch' id='rematch' onClick={handleRematchClick}>REMATCH</div>
+            </div>
+            </div>
+            )
         } if (winnerDisplay === 'set'){
         return  <div className='winnerCover' >
-              <h1 className='winnerText' >WINNER!!!</h1>
+              <h1 className='winnerText' >{winTitle()}</h1>
               <h2 className='winnerSponsor' >{theWinnerText()}</h2>
               <h2 className='winner2Sponsor' >{the2ndWinnerText()}</h2>   
-              <h2 className='winner3Sponsor' >{the3rdWinnerText()}</h2>   
+              <h2 className='winner3Sponsor' >{the3rdWinnerText()}</h2>
+              <div className='winButtons' >
+                <div className='reset' onClick={handleResetClick}>RESTART</div> |
+                <div className='rematch' onClick={handleRematchClick}>REMATCH</div>
+              </div>   
         </div>}
     <div></div>;}
+    
     //timing for when results screen starts and when it finishes and resets app//
     useEffect(() => {
         if(go ==='GO!'){
-        const goResult = setTimeout(() =>
-        { setResultScreen('on')
+        const goResult = setTimeout(() => {   
+            setGo('START')
+            setResultScreen('on');
+            setFollow('winCenter');
+            setWinnerEnter('winnerEnter')
         },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 1800)
-        const reset = setTimeout(() =>
-        { window.location.reload();
-        },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 7000)
-        return() => clearTimeout(goResult, reset);
-        }},[go, resultScreen, raceResultsFinished])
+        // const reset = setTimeout(() =>
+        // { window.location.reload();
+        // },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 700000)
+        // return() => clearTimeout(goResult, reset);
+        return() => clearTimeout(goResult);
+        }},[go, resultScreen, raceResultsFinished, winnerEnter])
     
     //racerVariable produces a degree of diviation from a racers average time of 9 seconds.
     //racerPradictable is 9 seconds minus the average of racerVariable x(0.5) which is the average out come of Math.random.//
@@ -191,50 +274,55 @@ export const Race = () => {
         let lane1 = document.getElementById('lane1input')
         lane1.focus();
         lane1.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(2.5,7.75);
+            let raceTime = raceTimeMaker(3,7.5);
             // let raceTime = raceTimeMaker(0,9);
-            raceTime > 9 ? setLane1Time({time:raceTime, animation:'lane1Slow'})
-            :setLane1Time({time:raceTime, animation:'lane1Fast'});
+            raceTime > 9.3 ? setLane1Time({time:raceTime, animation:'lane1Slow'})
+            : raceTime < 8.8 ?setLane1Time({time:raceTime, animation:'lane1Fast'})
+            : setLane1Time({time:raceTime, animation:'lane1Medium'});
         break;}
         case 'setLane2': { setDan({...dan,position:'lane2Set', id:'danMove'})
         let lane2 = document.getElementById('lane2input')
         lane2.focus();
         lane2.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(1.5,8.15);
+            let raceTime = raceTimeMaker(2,7.95);
             // let raceTime = raceTimeMaker(0,9);
-            raceTime > 9 ? setLane2Time({time:raceTime, animation:'lane2Slow'})
-            :setLane2Time({time:raceTime, animation:'lane2Fast'});
+            raceTime > 9.3 ? setLane2Time({time:raceTime, animation:'lane2Slow'})
+            : raceTime > 9 ?setLane2Time({time:raceTime, animation:'lane2Medium'})
+            : raceTime > 8.6 ?setLane2Time({time:raceTime, animation:'lane2Fast'})
+            : setLane2Time({time:raceTime, animation:'lane2Medium'});
         break;}
         case 'setLane3': { setHoney({...honey,position:'lane3Set', id:'honeyMove'})
             let lane3 = document.getElementById('lane3input')
             lane3.focus();
             lane3.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(2,7.95);
+            let raceTime = raceTimeMaker(2.5,7.73);
             // let raceTime = raceTimeMaker(0,9);
-            raceTime > 9 ? setLane3Time({time:raceTime, animation:'lane3Slow'})
-            :setLane3Time({time:raceTime, animation:'lane3Fast'});
+            raceTime > 9.2 ? setLane3Time({time:raceTime, animation:'lane3Slow'})
+            : raceTime < 8.8 ?setLane3Time({time:raceTime, animation:'lane3Fast'})
+            : setLane3Time({time:raceTime, animation:'lane3Medium'});
         break;} 
         case 'setLane4': { setGolden({...golden,position:'lane4Set', id:'goldenMove'})
         let lane4 = document.getElementById('lane4input')
         lane4.focus();
         lane4.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(2.5,7.75);
+            let raceTime = raceTimeMaker(3,7.5);
             // let raceTime = raceTimeMaker(0,9);
-            raceTime > 9 ? setLane4Time({time:raceTime, animation:'lane4Slow'})
-            :setLane4Time({time:raceTime, animation:'lane4Fast'});
+            raceTime > 9.2 ? setLane4Time({time:raceTime, animation:'lane4Slow'})
+            : raceTime < 8.8 ?setLane4Time({time:raceTime, animation:'lane4Fast'})
+            : setLane4Time({time:raceTime, animation:'lane4Medium'});
         break;}
         case 'setLane5': { setFoxy({...foxy,position:'lane5Set', id:'foxyMove'})
             let lane5 = document.getElementById('lane5input')
             lane5.focus();
             lane5.setAttribute('placeholder','enter sponsored option')
-            let raceTime = raceTimeMaker(2,7.95);
+            let raceTime = raceTimeMaker(2.5,7.73);
             // let raceTime = raceTimeMaker(0,9);
-            raceTime > 9 ? setLane5Time({time:raceTime, animation:'lane5Slow'})
-            :setLane5Time({time:raceTime, animation:'lane5Fast'});
+            raceTime > 9.2 ? setLane5Time({time:raceTime, animation:'lane5Slow'})
+            : raceTime < 8.8 ?setLane5Time({time:raceTime, animation:'lane5Fast'})
+            : setLane5Time({time:raceTime, animation:'lane5Medium'});
             break;}
             default:
             }}
-            console.log(window.innerWidth)
 
     //function used to remove racer from race when user unclicks racers name//
     const removeRacer = (setLane) => {
@@ -323,70 +411,70 @@ return (
         <input type='checkbox' id='setLane1' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane1' htmlFor='setLane1'>PUPSTAR</label>
         <form className='lane1input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane1input').blur(); startPosition();}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane1input').blur(); racePosition();}}}>
             <input id='lane1input' type='text' placeholder='' onChange={(e)=> setPup({...pup,sponsor:e.target.value})} />
         </form>
         <div className='lane1' id={pup.position} style={lane1AnimationTime} >
             <div className='pupShadow' id={pup.id+'Shadow'} ></div>
         </div>
         <div className='lane1' id={pup.position} style={lane1AnimationTime}>
-            <div className='pup' id={pup.id} alt={pup.alt}></div>
+            <label htmlFor='setLane1'><div className='pup' id={pup.id} alt={pup.alt}></div></label>
         </div>
 
         <input type='checkbox' id='setLane2' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane2' htmlFor='setLane2'>SPEEDY</label>
         <form className='lane2input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane2input').blur(); startPosition();}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane2input').blur(); racePosition();}}}>
             <input id='lane2input' type='text' placeholder='' onChange={(e)=> setDan({...dan,sponsor:e.target.value})} />
         </form>
         <div className='lane2' id={dan.position} style={lane2AnimationTime}>
             <div className='danShadow' id={dan.id+'Shadow'} ></div>
         </div>
         <div className='lane2' id={dan.position} style={lane2AnimationTime}>
-            <div className='dan' id={dan.id} alt={dan.alt} ></div>
+            <label htmlFor='setLane2'><div className='dan' id={dan.id} alt={dan.alt} ></div></label>
         </div>
 
         <input type='checkbox' id='setLane3' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane3' htmlFor='setLane3'>B-LINE</label>
         <form className='lane3input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane3input').blur(); startPosition();}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane3input').blur(); racePosition();}}}>
             <input id='lane3input' type='text' placeholder='' onChange={(e)=> setHoney({...honey,sponsor:e.target.value})} />
         </form>
         <div className='lane3' id={honey.position} style={lane3AnimationTime}>
             <div className='honeyShadow' id={honey.id+'Shadow'} ></div>
         </div>
         <div className='lane3' id={honey.position} style={lane3AnimationTime}>
-            <div className='honey' id={honey.id} alt={honey.alt} ></div>
+            <label htmlFor='setLane3'><div className='honey' id={honey.id} alt={honey.alt} ></div></label>
         </div>
 
         <input type='checkbox' id='setLane4' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane4' htmlFor='setLane4'>SK8CUB</label>
         <form className='lane4input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane4input').blur(); startPosition();}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane4input').blur(); racePosition();}}}>
             <input id='lane4input' type='text' placeholder='' onChange={(e)=> setGolden({...golden,sponsor:e.target.value})} />
         </form>
         <div className='lane4' id={golden.position} style={lane4AnimationTime}>
             <div className='goldenShadow' id={golden.id + 'Shadow'} ></div>
         </div>
         <div className='lane4' id={golden.position} style={lane4AnimationTime}>
-            <div className='golden' id={golden.id} alt={golden.alt} ></div>
+            <label htmlFor='setLane4'><div className='golden' id={golden.id} alt={golden.alt} ></div></label>
         </div>
 
         <input type='checkbox' id='setLane5' onClick={(e)=> handleSetRacerClick(e)} />
         <label className='btnLane5' htmlFor='setLane5'>FOXY</label>
         <form className='lane5input' 
-            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.keyCode === 13){ document.getElementById('lane5input').blur(); startPosition();}}}>
+            onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane5input').blur(); racePosition();}}}>
             <input id='lane5input' type='text' placeholder='' onChange={(e)=> setFoxy({...foxy,sponsor:e.target.value})} />
         </form>
         <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
             <div className='foxyShadow' id={foxy.id+'Shadow'} alt={foxy.alt} ></div>
         </div>
         <div className='lane5' id={foxy.position} style={lane5AnimationTime}>
-            <div className='foxy' id={foxy.id} alt={foxy.alt} ></div>
+            <label htmlFor='setLane5'><div className='foxy' id={foxy.id} alt={foxy.alt} ></div></label>
         </div>
     </div>
   </div>
-    {winResultsCover(resultScreen)}
+  {winResultsCover(resultScreen)}
 </div>
 );}
 

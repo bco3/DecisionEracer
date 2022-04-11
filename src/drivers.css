@@ -7,7 +7,7 @@ moving animtations are set to the track lane on track.css  */
     width: 110px;
     opacity: 13%;
     filter: brightness(0%) blur(2px);
-    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-14px, 0px) matrix(1, 0, 1, 1, -35, -57);
+    transform: scale3d(0.77,0.77,0.77) translate3d(0px,-14px, 0px) matrix(1, 0, 1, 1, -35, -57);
     background-image: url('./img/pup.png');
 }
 .pup {
@@ -58,9 +58,9 @@ moving animtations are set to the track lane on track.css  */
     grid-area: 2/2;
     height: 110px;
     width: 110px;
-    /* transform: translate3d(0px,-64px, 0px); */
+    transform: scale3d(1,1,1) translate3d(0px,-64px, 0px);
     background-image: url('./img/pup.png');
-    animation: pupClick 2s steps(9) infinite;
+    /* animation: pupClick 2s steps(9) infinite; */
 }
 .pupWinShadow {
     display: inline-block;
@@ -71,7 +71,7 @@ moving animtations are set to the track lane on track.css  */
     filter: brightness(0%) blur(2px);
     transform: scale3d(1,1,1) translate3d(0px,54px, 0px) matrix(1, 0, 1, 1, -35, -57);
     background-image: url('./img/pup.png');
-    animation: pupClick 2s steps(9) infinite;
+    /* animation: pupClick 2s steps(9) infinite; */
 }
 
 
@@ -81,7 +81,7 @@ moving animtations are set to the track lane on track.css  */
     width: 110px;
     opacity: 8%;
     filter: brightness(0%) blur(2px);
-    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1, -35, -57);
+    transform: scale3d(0.77,0.77,0.77) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1, -35, -57);
     background-image: url('./img/dan.png');
 }
 .dan {
@@ -135,9 +135,9 @@ moving animtations are set to the track lane on track.css  */
     grid-area: 2/2;
     height: 110px;
     width: 110px;
-    /* transform: translate3d(0px,-64px, 0px); */
+    transform: scale3d(1,1,1) translate3d(0px,-64px, 0px);
     background-image: url('./img/dan.png');
-    animation: danClick 3s steps(12) infinite;
+    /* animation: danClick 3s steps(12) infinite; */
 }
 .danWinShadow {
     display: inline-block;
@@ -157,14 +157,14 @@ moving animtations are set to the track lane on track.css  */
     width: 70px;
     opacity: 8%;
     filter: brightness(0%) blur(2px);
-    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -15, -10);
+    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -15, -10);
     background-image: url('./img/honey.png');
 }
 .honey {
     z-index: 22;
     height: 70px;
     width: 70px;
-    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-20px, 0px);
+    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-30px, 0px);
     background-image: url('./img/honey.png');
 }
 #honey, #honeyShadow {
@@ -199,11 +199,11 @@ moving animtations are set to the track lane on track.css  */
 @keyframes honeyMoveShadow {
     0% {
         background-position: -1120px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -13, 20);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -13, 20);
     } 
     100% {
         background-position: -1750px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -13, 25);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -13, 25);
     }
 }
 #honeyClick {
@@ -213,14 +213,14 @@ moving animtations are set to the track lane on track.css  */
 @keyframes honeyClick {
     0% {
         background-position: 0px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-33px, 0px);
     } 
     50% {
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-40px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-50px, 0px);
     }
     100% {
         background-position: -840px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-33px, 0px);
     }
 }
 #honeyClickShadow {
@@ -230,64 +230,17 @@ moving animtations are set to the track lane on track.css  */
 @keyframes honeyClickShadow {
     0% {
         background-position: 0px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -10, 10);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-33px, 0px) matrix(1, 0, 1, 1.2, -10, 10);
     } 
     50% {
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-40px, 0px) matrix(1, 0, 1, 1.2, -10, 40);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-50px, 0px) matrix(1, 0, 1, 1.2, -10, 40);
     }
     100% {
         background-position: -840px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -10, 5);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-33px, 0px) matrix(1, 0, 1, 1.2, -10, 5);
     }
 }
-.honeyWin {
-    display: inline-block;
-    grid-area: 2/2;
-    height: 70px;
-    width: 70px;
-    transform: translate3d(0px, 0px, 0px);
-    background-image: url('./img/honey.png');
-    animation: honeyWin 2s steps(12) ;
-    animation-iteration-count: 2;
-}
-@keyframes honeyWin {
-    0% {
-        background-position: 0px;
-        transform: scale3d(1,1,1) translate3d(0px,-3px, 0px);
-    } 
-    50% {
-        transform: scale3d(1,1,1) translate3d(0px,-23px, 0px);
-    }
-    100% {
-        background-position: -840px;
-        transform: scale3d(1,1,1) translate3d(0px,-3px, 0px);
-    }
-}
-.honeyWinShadow {
-    display: inline-block;
-    grid-area: 2/2;
-    height: 70px;
-    width: 70px;
-    opacity: 7%;
-    filter: brightness(0%) blur(2px);
-    transform: scale3d(1,1,1) translate3d(0px, 0px, 0px) matrix(1, 0, 1, 1.2, -15, 0);
-    background-image: url('./img/honey.png');
-    animation: honeyWinShadow 2s steps(12) ;
-    animation-iteration-count: 2;
-}
-@keyframes honeyWinShadow {
-    0% {
-        background-position: 0px;
-        transform: scale3d(1,1,1) translate3d(0px,-3px, 0px) matrix(1, 0, 1, 1.2, -10, 10);
-    } 
-    50% {
-        transform: scale3d(1,1,1) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -10, 40);
-    }
-    100% {
-        background-position: -840px;
-        transform: scale3d(1,1,1) translate3d(0px,-3px, 0px) matrix(1, 0, 1, 1.2, -10, 5);
-    }
-}
+
 
 .goldenShadow {
     z-index: 23;
@@ -295,14 +248,14 @@ moving animtations are set to the track lane on track.css  */
     width: 95px;
     opacity: 10%;
     filter: brightness(0%) blur(2px);
-    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
+    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
     background-image: url('./img/golden.png');
 }
 .golden {
     z-index: 23;
     height: 95px;
     width: 95px;
-    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px);
+    transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px);
     background-image: url('./img/golden.png');
 }
 #golden, #goldenShadow {
@@ -326,17 +279,17 @@ moving animtations are set to the track lane on track.css  */
 @keyframes goldenClick {
     0% {
         background-position: 0px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px);
     } 
     40% {
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-67px, 0px);
     }
     50% {
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px);
     }
     100% {
         background-position: -1045px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px);
     }
 }
 #goldenMove {
@@ -349,17 +302,17 @@ moving animtations are set to the track lane on track.css  */
 @keyframes goldenClickShadow {
     0% {
         background-position: 0px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
     } 
     40% {
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-23px, 0px) matrix(1, 0, 1, 1.2, -35, 10);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-67px, 0px) matrix(1, 0, 1, 1.2, -35, 10);
     }
     50% {
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
     }
     100% {
         background-position: -1045px;
-        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-13px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
+        transform: scale3d(0.8,0.8,0.8) translate3d(0px,-53px, 0px) matrix(1, 0, 1, 1.2, -35, -10);
     }
 }
 #goldenMoveShadow {
