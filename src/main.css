@@ -48,6 +48,8 @@ body {
   /* padding: 0; */
   color: rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
+  background: url('./img/grassBG.jpg') repeat;
+  /* background-size: cover; */
 }
 
 #root {
@@ -65,16 +67,17 @@ body {
   /* margin: 0; */
   /* overflow: visible; */
   overflow: hidden;
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
 }
 
 .container {
-  /* touch-action: none; */
+  touch-action: none;
   display: grid;
   /* position: relative; */
   position: absolute;
   width: 1448px;
   height: 696px;
+  top: 50%;
   /* left: 200px; */
   /* right: -100; */
   /* width: 100%; */
@@ -84,26 +87,33 @@ body {
   overflow: hidden;
   /* scroll-snap-type: y mandatory; */
   /* scroll-padding-top: 1.5rem;   */
+  transform: translate3d(0%, -50%, 0px);
 }
 
 #follow {
-  animation: raceTracking 8s ease-in-out 3s forwards;
+  animation: raceTracking 11s ease-in-out forwards;
 }
 
 @keyframes raceTracking {
+  15% {
+    transform: translate3d(-100px, -50%, 0px)
+  }
+  30% {
+    transform: translate3d(-100px, -50%, 0px)
+  }
   100% {
-    transform: translate3d(var(--tracking, 0px), 0px, 0px)
+    transform: translate3d(var(--tracking, 0px), -50%, 0px)
   }
 }
 
 #winCenter {
   left: 50%;
-  transform: translate3d(-50%, 0px, 0px);
+  transform: translate3d(-50%, -50%, 0px);
 }
 
 
 .inner-container {
-  /* touch-action: none; */
+  touch-action: none;
   /* left: 100px; */
   /* display: flex; */
   /* overflow: hidden; */
@@ -198,6 +208,10 @@ body {
 
 
 @media screen and (min-width: 1400px) {
+  body {
+    background: none;
+  }
+  
   .inner-container {
     overflow: hidden;
     position: relative;
@@ -244,5 +258,50 @@ body {
     justify-self: center;
     align-self: center;
     /* transition: opacity 0.5s ease-in; */
+  }
+}
+
+@media screen and (max-width:649px) {
+  .container {
+    left: -90px;
+  }
+
+  #keyboardInputMove {
+    animation: inputMove 1s ease-in-out forwards;
+  }
+
+  @keyframes inputMove {
+    100% {
+      transform: translate3d(-200px, -50%, 0px)
+    }
+  }
+
+  #keyboardInputMoveOut {
+    animation: inputMoveOut 1s ease-in-out forwards;
+  }
+
+  @keyframes inputMoveOut {
+    0% {
+      transform: translate3d(-200px, -50%, 0px)
+    }
+    100% {
+      transform: translate3d(0px, -50%, 0px)
+    }
+  }
+
+  #follow {
+    animation: raceTracking 10.7s ease-in-out forwards;
+  }
+  
+  @keyframes raceTracking {
+    15% {
+      transform: translate3d(-45px, -50%, 0px)
+    }
+    30% {
+      transform: translate3d(-45px, -50%, 0px)
+    }
+    100% {
+      transform: translate3d(var(--tracking, 0px), -50%, 0px)
+    }
   }
 }

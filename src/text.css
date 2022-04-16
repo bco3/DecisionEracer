@@ -113,6 +113,11 @@ input {
     grid-area: 2/2;
     transform: matrix(1, 0, .15, 1, 15, 4);
 }
+#lane1input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgba(1, 1, 221, 0.8);
+}
 .btnLane1 {
     z-index: 1;
     position: relative;
@@ -144,6 +149,11 @@ input {
 #lane2input {
     grid-area: 3/2;
     transform: matrix(1, 0, .15, 1, 20, -0);
+}
+#lane2input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgba(221, 1, 56, 0.8);
 }
 .btnLane2 {
     z-index: 1;
@@ -177,6 +187,11 @@ input {
     grid-area: 4/2;
     transform: matrix(1, 0, .15, 1, 25, -4);
 }
+#lane3input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 196, 0, 0.8);
+}
 .btnLane3 {
     z-index: 1;
     position: relative;
@@ -209,6 +224,11 @@ input {
     grid-area: 5/2;
     transform: matrix(1, 0, .15, 1, 30, -4);
 }
+#lane4input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 255, 128, 0.8);
+}
 .btnLane4 {
     z-index: 1;
     position: relative;
@@ -240,6 +260,12 @@ input {
 #lane5input {
     grid-area: 6/2;
     transform: matrix(1, 0, .15, 1, 35, -5);
+}
+
+#lane5input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 81, 0, 0.8);
 }
 .btnLane5 {
     z-index: 1;

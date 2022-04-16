@@ -9,10 +9,26 @@ export const Race = () => {
 
     //go is the start button, used to start the race, and inmpacts the timing for resultScreen//
     const [go,setGo] = useState('START');
-    const [follow, setFollow] = useState('')
+    const [follow, setFollow] = useState('');
+    let fullWindowHeight = window.innerHeight;
+    let keyboardIsOpen = false;
+
+    window.addEventListener("resize", function() {
+  if(window.innerHeight === fullWindowHeight) {
+    keyboardIsOpen = false;
+  } else if(window.innerHeight < fullWindowHeight*0.8) {
+    keyboardIsOpen = true;
+  }
+});
+//     const isInitiallyVisible = false;
+//     const [isKeyboardVisible, setIsKeyboardVisible] = useState(isInitiallyVisible);
+//     useEffect(() => {
+//     window.visualViewport.addEventListener('resize', () => {
+//     setIsKeyboardVisible(!isKeyboardVisible);
+//   });}, [isKeyboardVisible]);
     //resultScreen is used to apply new JSX that is the results screen when race ends//
-    const [resultScreen, setResultScreen] = useState('off')
-    const [winnerEnter, setWinnerEnter] = useState('')
+    const [resultScreen, setResultScreen] = useState('off');
+    const [winnerEnter, setWinnerEnter] = useState('');
     //laneTime stores pre set race time results for each lanes active racer and are predetermined by selecting the racer.
     //laneTime animation is used to setup Slow or Fast racer animation to JSX css//
     const [lane1Time,setLane1Time] = useState({time:null, animation:''});
@@ -24,7 +40,9 @@ export const Race = () => {
     //pup, dan, honey, golden, foxy, name: is used for driver css className, 
     //id: is used for changing racer animations
     //position: is used for moving the racers
-    //sponsor: is used to hold input value for decision options that each racer may race on behalf of//
+    //sponsor: is used to hold input value for decision options that each racer may race on behalf of
+    //color: is used to set winners screen sponsor text color
+
     const [pup, setPup] = useState(
         {
             name: 'pup',
@@ -89,11 +107,13 @@ export const Race = () => {
     // iframe.style.display = 'none';
     // document.body.appendChild(iframe);
     // window.altScrollTo = iframe.contentWindow.scrollTo;
-    // const startPosition=()=>{window.altScrollTo.call(window, 100, 100);}
+    const startPosition=()=>{}
 
     // const startPosition=()=>{window.scrollTo({top:185, left:0, behavior: 'smooth'});}
-    const racePosition=()=>{window.scrollTo({left:40, top:185, behavior: 'smooth'});}
-    const startPosition=()=>{ return setTimeout(function(){window.scrollTo(0,185);},100) }
+    // const racePosition=()=>{setFollow('keyboardInputMoveOut')}
+    const racePosition=()=>{window.scrollTo({top:0, left:0, behavior: 'smooth'})}
+
+    // const startPosition=()=>{ return setTimeout(function(){window.scrollTo(0,185);},100) }
     
     // useEffect(() => { const scrollStart = setTimeout(() =>
     //     { window.scrollTo({left:30, top:185, behavior: 'smooth'});
@@ -131,20 +151,37 @@ export const Race = () => {
     //     }, 0);
     //   });
     // const startPosition=()=>{document.body.scrollLeft = 150;}
+// const [scrollPosition, setScrollPosition] = useState(0);
+// const handleScroll = () => {
+//     const position = window.pageYOffset;
+//     setScrollPosition(position);
+// };
+
+// useEffect(() => {
+//     window.addEventListener('scroll', handleScroll, { passive: true });
+
+//     return () => {
+//         window.removeEventListener('scroll', handleScroll);
+//     };
+// }, []);
+
+const viewWidth = Math.min(window.visualViewport.width, document.documentElement.clientWidth, window.innerWidth)
+    // const viewHeight = Math.min(window.visualViewport.height, document.documentElement.clientHeight, window.innerHeight)
 
     const handleGo = (e) => {
         e.target.id = 'go';
-        racePosition();
         setGo('MARK');
+        setFollow('follow')
     }
     useEffect(() => {
         if(go === 'MARK') {
-        setResultScreen('set');
-        setFollow('follow')
-        const markSet = setTimeout(() =>
-        setGo('SET'),1300)
-        return() => clearTimeout(markSet);
-       }},[go, resultScreen])
+            setResultScreen('set');
+            
+            // if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--trackStart', -100 + window.pageXOffset + 'px');}
+            const markSet = setTimeout(() =>
+            setGo('SET'),1300)
+            return() => clearTimeout(markSet);
+       }},[go, resultScreen, viewWidth])
 
     //setting up results screen with winner or ties as well as their sponsored options//
     const raceResults = () => {
@@ -183,13 +220,15 @@ export const Race = () => {
     const winTitle = () => {return raceResultsFinished.length > 3 ? '3 WAY TIE!!!' : raceResultsFinished.length > 2 ? 'TIE!!!' : <font style={{color:theWinnerColor()}}>WINNER!!!</font>}
     //starts race, gets racers moving, and page to follow racers from left to right//
     // const viewWidth = Math.max(window.visualViewport.width || 0, document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    const viewWidth = Math.min(window.visualViewport.width, document.documentElement.clientWidth, window.innerWidth)
+    
 
     useEffect(() => {
         if(go ==='SET'){
         const markSetGo = setTimeout(() => {
             setGo('GO!');
-            if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1448 + window.pageXOffset + 'px');}
+            console.log(window.pageXOffset);
+            if(viewWidth < 650){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1270 + 'px');}
+            else if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1448 + 'px');}
             if(pup.position === 'lane1Set'){setPup({...pup, position:lane1Time.animation, id:'pupMove'})}
             if(dan.position === 'lane2Set'){setDan({...dan, position:lane2Time.animation, id:'danMove'})}
             if(honey.position === 'lane3Set'){setHoney({...honey, position:lane3Time.animation, id:'honeyMove'})}
@@ -269,10 +308,11 @@ export const Race = () => {
     const raceTimeMaker = (racerVariable,racerPradictable) => {return (Math.random()* racerVariable) + racerPradictable}
 
     const setupRacer = (setLane) => {
+        // if (keyboardIsOpen === false){setFollow('keyboardInputMove')};
         switch(setLane) {
         case 'setLane1': { setPup({...pup,position:'lane1Set', id:'pupMove'})
         let lane1 = document.getElementById('lane1input')
-        lane1.focus();
+        // lane1.focus();
         lane1.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(3,7.5);
             // let raceTime = raceTimeMaker(0,9);
@@ -282,7 +322,6 @@ export const Race = () => {
         break;}
         case 'setLane2': { setDan({...dan,position:'lane2Set', id:'danMove'})
         let lane2 = document.getElementById('lane2input')
-        lane2.focus();
         lane2.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(2,7.95);
             // let raceTime = raceTimeMaker(0,9);
@@ -293,7 +332,6 @@ export const Race = () => {
         break;}
         case 'setLane3': { setHoney({...honey,position:'lane3Set', id:'honeyMove'})
             let lane3 = document.getElementById('lane3input')
-            lane3.focus();
             lane3.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(2.5,7.73);
             // let raceTime = raceTimeMaker(0,9);
@@ -303,7 +341,6 @@ export const Race = () => {
         break;} 
         case 'setLane4': { setGolden({...golden,position:'lane4Set', id:'goldenMove'})
         let lane4 = document.getElementById('lane4input')
-        lane4.focus();
         lane4.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(3,7.5);
             // let raceTime = raceTimeMaker(0,9);
@@ -313,7 +350,6 @@ export const Race = () => {
         break;}
         case 'setLane5': { setFoxy({...foxy,position:'lane5Set', id:'foxyMove'})
             let lane5 = document.getElementById('lane5input')
-            lane5.focus();
             lane5.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(2.5,7.73);
             // let raceTime = raceTimeMaker(0,9);
@@ -326,6 +362,8 @@ export const Race = () => {
 
     //function used to remove racer from race when user unclicks racers name//
     const removeRacer = (setLane) => {
+        setFollow('keyboardInputMoveOut');
+        window.scrollTo({top:0,left:0, behavior: 'smooth'});
         switch(setLane) {
         case 'setLane1': { setPup({...pup,position:'lane1Out', id:'pup'}); 
             setLane1Time({time:'', animation:''});
@@ -399,8 +437,12 @@ export const Race = () => {
         return () => clearTimeout(clickToIdle);}
         },[foxy, go])
 
+const setupFocus = (e) => {let htmlfor = e.target.htmlFor; document.getElementById(htmlfor).checked ? document.getElementById(`lane${htmlfor[7]}input`).blur() : document.getElementById(`lane${htmlfor[7]}input`).focus();}
+
 return (
-<div className="container" id={follow}>
+<div className="container" 
+// style={{transform:`translate(-${transX}, -${transY})`, left:transX, top:transY}} 
+id={follow}>
   <div className="inner-container">
     <div className="grid-container">
         <div className='titleShadow' >DECISION eRACER</div>
@@ -409,7 +451,7 @@ return (
         <div className='go' onClick={handleGo}>{go}</div>
 
         <input type='checkbox' id='setLane1' onClick={(e)=> handleSetRacerClick(e)} />
-        <label className='btnLane1' htmlFor='setLane1'>PUPSTAR</label>
+        <label className='btnLane1' htmlFor='setLane1' onClick={(e)=> setupFocus(e)} >PUPSTAR</label>
         <form className='lane1input' 
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane1input').blur(); racePosition();}}}>
             <input id='lane1input' type='text' placeholder='' onChange={(e)=> setPup({...pup,sponsor:e.target.value})} />
@@ -422,7 +464,7 @@ return (
         </div>
 
         <input type='checkbox' id='setLane2' onClick={(e)=> handleSetRacerClick(e)} />
-        <label className='btnLane2' htmlFor='setLane2'>SPEEDY</label>
+        <label className='btnLane2' htmlFor='setLane2' onClick={(e)=> setupFocus(e)} >SPEEDY</label>
         <form className='lane2input' 
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane2input').blur(); racePosition();}}}>
             <input id='lane2input' type='text' placeholder='' onChange={(e)=> setDan({...dan,sponsor:e.target.value})} />
@@ -435,7 +477,7 @@ return (
         </div>
 
         <input type='checkbox' id='setLane3' onClick={(e)=> handleSetRacerClick(e)} />
-        <label className='btnLane3' htmlFor='setLane3'>B-LINE</label>
+        <label className='btnLane3' htmlFor='setLane3' onClick={(e)=> setupFocus(e)} >B-LINE</label>
         <form className='lane3input' 
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane3input').blur(); racePosition();}}}>
             <input id='lane3input' type='text' placeholder='' onChange={(e)=> setHoney({...honey,sponsor:e.target.value})} />
@@ -448,7 +490,7 @@ return (
         </div>
 
         <input type='checkbox' id='setLane4' onClick={(e)=> handleSetRacerClick(e)} />
-        <label className='btnLane4' htmlFor='setLane4'>SK8CUB</label>
+        <label className='btnLane4' htmlFor='setLane4' onClick={(e)=> setupFocus(e)} >SK8CUB</label>
         <form className='lane4input' 
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane4input').blur(); racePosition();}}}>
             <input id='lane4input' type='text' placeholder='' onChange={(e)=> setGolden({...golden,sponsor:e.target.value})} />
@@ -461,7 +503,7 @@ return (
         </div>
 
         <input type='checkbox' id='setLane5' onClick={(e)=> handleSetRacerClick(e)} />
-        <label className='btnLane5' htmlFor='setLane5'>FOXY</label>
+        <label className='btnLane5' htmlFor='setLane5' onClick={(e)=> setupFocus(e)} >FOXY</label>
         <form className='lane5input' 
             onSubmit={(e)=> handleSubmit(e)} onKeyDown={(e)=> {if(e.key === 'Enter'){ document.getElementById('lane5input').blur(); racePosition();}}}>
             <input id='lane5input' type='text' placeholder='' onChange={(e)=> setFoxy({...foxy,sponsor:e.target.value})} />
