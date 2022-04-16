@@ -10,16 +10,16 @@ export const Race = () => {
     //go is the start button, used to start the race, and inmpacts the timing for resultScreen//
     const [go,setGo] = useState('START');
     const [follow, setFollow] = useState('');
-    let fullWindowHeight = window.innerHeight;
-    let keyboardIsOpen = false;
+//     let fullWindowHeight = window.innerHeight;
+//     let keyboardIsOpen = false;
 
-    window.addEventListener("resize", function() {
-  if(window.innerHeight === fullWindowHeight) {
-    keyboardIsOpen = false;
-  } else if(window.innerHeight < fullWindowHeight*0.8) {
-    keyboardIsOpen = true;
-  }
-});
+//     window.addEventListener("resize", function() {
+//   if(window.innerHeight === fullWindowHeight) {
+//     keyboardIsOpen = false;
+//   } else if(window.innerHeight < fullWindowHeight*0.8) {
+//     keyboardIsOpen = true;
+//   }
+// });
 //     const isInitiallyVisible = false;
 //     const [isKeyboardVisible, setIsKeyboardVisible] = useState(isInitiallyVisible);
 //     useEffect(() => {
@@ -107,7 +107,7 @@ export const Race = () => {
     // iframe.style.display = 'none';
     // document.body.appendChild(iframe);
     // window.altScrollTo = iframe.contentWindow.scrollTo;
-    const startPosition=()=>{}
+    // const startPosition=()=>{}
 
     // const startPosition=()=>{window.scrollTo({top:185, left:0, behavior: 'smooth'});}
     // const racePosition=()=>{setFollow('keyboardInputMoveOut')}
@@ -126,7 +126,7 @@ export const Race = () => {
         //       e.preventDefault();
         //       e.stopImmediatePropagation();
         //   }, { passive: false });
-        startPosition();
+        racePosition();
       }, [])
 
     //   const [scrollPosition, setScrollPosition] = useState(0);
@@ -242,7 +242,7 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
             setFollow('');
             setResultScreen('off');
             setWinnerEnter('');
-            startPosition();
+            // startPosition();
             document.querySelector('.go').id = 'start';
             const allRacerLanes = [document.getElementById('setLane1'), document.getElementById('setLane2'),
             document.getElementById('setLane3'), document.getElementById('setLane4'), document.getElementById('setLane5')]

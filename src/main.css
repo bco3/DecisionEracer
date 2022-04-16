@@ -231,22 +231,16 @@ body {
   }
 
   .winnerCover {
-    /* pointer-events: none; */
     position: absolute;
     margin: 0;
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    right: 0;
     padding: 0;
     display: grid;
     width: 1816px;
     height: 872px;
-    /* height: 100vh; */
-    grid-template-columns: 128px 504px 128px;
-    grid-template-rows: 48px 88px 48px 48px 48px;
+    grid-template-columns: 1fr 504px 1fr;
+    grid-template-rows: 45px 70px 43px 43px 43px 43px;
     background: url('./img/tracklong.jpg');
-    background-size: cover;
+    background-size: 100%;
     /* background-position: right -250px top 42px; */
     background-position: center;
     opacity: 0%;
@@ -257,8 +251,12 @@ body {
     align-items: center;
     justify-self: center;
     align-self: center;
-    /* transition: opacity 0.5s ease-in; */
   }
+
+  #follow {
+    animation: none;
+  }
+
 }
 
 @media screen and (max-width:649px) {
@@ -266,7 +264,7 @@ body {
     left: -90px;
   }
 
-  #keyboardInputMove {
+  /* #keyboardInputMove {
     animation: inputMove 1s ease-in-out forwards;
   }
 
@@ -287,7 +285,7 @@ body {
     100% {
       transform: translate3d(0px, -50%, 0px)
     }
-  }
+  } */
 
   #follow {
     animation: raceTracking 10.7s ease-in-out forwards;
