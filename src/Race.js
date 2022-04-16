@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useLayoutEffect} from 'react';
 import './drivers.css';
 import './track.css';
 import './main.css';
@@ -7,41 +7,26 @@ import './text.css';
 
 export const Race = () => {
 
-    //go is the start button, used to start the race, and inmpacts the timing for resultScreen//
+//go is the start button, used to start the race, and inmpacts the timing for resultScreen//
     const [go,setGo] = useState('START');
     const [follow, setFollow] = useState('');
-//     let fullWindowHeight = window.innerHeight;
-//     let keyboardIsOpen = false;
-
-//     window.addEventListener("resize", function() {
-//   if(window.innerHeight === fullWindowHeight) {
-//     keyboardIsOpen = false;
-//   } else if(window.innerHeight < fullWindowHeight*0.8) {
-//     keyboardIsOpen = true;
-//   }
-// });
-//     const isInitiallyVisible = false;
-//     const [isKeyboardVisible, setIsKeyboardVisible] = useState(isInitiallyVisible);
-//     useEffect(() => {
-//     window.visualViewport.addEventListener('resize', () => {
-//     setIsKeyboardVisible(!isKeyboardVisible);
-//   });}, [isKeyboardVisible]);
-    //resultScreen is used to apply new JSX that is the results screen when race ends//
+    const [viewWidth,setViewWidth] = useState(Math.min(window.visualViewport.width, document.documentElement.clientWidth, window.innerWidth))
+//resultScreen is used to apply new JSX that is the results screen when race ends//
     const [resultScreen, setResultScreen] = useState('off');
     const [winnerEnter, setWinnerEnter] = useState('');
-    //laneTime stores pre set race time results for each lanes active racer and are predetermined by selecting the racer.
-    //laneTime animation is used to setup Slow or Fast racer animation to JSX css//
+//laneTime stores pre set race time results for each lanes active racer and are predetermined by selecting the racer.
+//laneTime animation is used to setup Slow or Fast racer animation to JSX css//
     const [lane1Time,setLane1Time] = useState({time:null, animation:''});
     const [lane2Time,setLane2Time] = useState({time:null, animation:''});
     const [lane3Time,setLane3Time] = useState({time:null, animation:''});
     const [lane4Time,setLane4Time] = useState({time:null, animation:''});
     const [lane5Time,setLane5Time] = useState({time:null, animation:''});
 
-    //pup, dan, honey, golden, foxy, name: is used for driver css className, 
-    //id: is used for changing racer animations
-    //position: is used for moving the racers
-    //sponsor: is used to hold input value for decision options that each racer may race on behalf of
-    //color: is used to set winners screen sponsor text color
+//pup, dan, honey, golden, foxy, name: is used for driver css className, 
+//id: is used for changing racer animations
+//position: is used for moving the racers
+//sponsor: is used to hold input value for decision options that each racer may race on behalf of
+//color: is used to set winners screen sponsor text color
 
     const [pup, setPup] = useState(
         {
@@ -94,80 +79,30 @@ export const Race = () => {
             color: 'rgb(255, 81, 0)'
         });
 
-    //laneAnimationTime is used to prepare racers times to be used in JSX variable for animation-duration://
+//laneAnimationTime is used to prepare racers times to be used in JSX variable for animation-duration://
     const lane1AnimationTime = { animationDuration: lane1Time.time + 's'}
     const lane2AnimationTime = { animationDuration: lane2Time.time + 's'}
     const lane3AnimationTime = { animationDuration: lane3Time.time + 's'}
     const lane4AnimationTime = { animationDuration: lane4Time.time + 's'}
     const lane5AnimationTime = { animationDuration: lane5Time.time + 's'}
 
-    //when start is clicked, triggers useEffects to countdown and start race.//
-
-    // var iframe = document.createElement('iframe');
-    // iframe.style.display = 'none';
-    // document.body.appendChild(iframe);
-    // window.altScrollTo = iframe.contentWindow.scrollTo;
-    // const startPosition=()=>{}
-
-    // const startPosition=()=>{window.scrollTo({top:185, left:0, behavior: 'smooth'});}
-    // const racePosition=()=>{setFollow('keyboardInputMoveOut')}
+    
+    
     const racePosition=()=>{window.scrollTo({top:0, left:0, behavior: 'smooth'})}
-
-    // const startPosition=()=>{ return setTimeout(function(){window.scrollTo(0,185);},100) }
-    
-    // useEffect(() => { const scrollStart = setTimeout(() =>
-    //     { window.scrollTo({left:30, top:185, behavior: 'smooth'});
-    //     },1800)
-    //     return() => clearTimeout(scrollStart);
-    //     },[])
-
     useEffect(() => {
-        // window.addEventListener('touchmove', e => {
-        //       e.preventDefault();
-        //       e.stopImmediatePropagation();
-        //   }, { passive: false });
         racePosition();
-      }, [])
-
-    //   const [scrollPosition, setScrollPosition] = useState(0);
-    //   const handleScroll = () => {
-    //     const position = window.pageYOffset;
-    //     setScrollPosition(position);
-    //   };
+    }, [])
     
-    //   useEffect(() => {
-    //     window.addEventListener("scroll", handleScroll);
+    useLayoutEffect(() => {
+        function updateSize() {
+            setViewWidth(Math.min(window.visualViewport.width, document.documentElement.clientWidth, window.innerWidth));
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
     
-    //     return () => {
-    //       window.removeEventListener("scroll", handleScroll);
-    //     };
-    //   }, []);
-    // window.addEventListener("load", function() {
-    //     setTimeout(function() {
-    //       var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-    //       if (scrollPos < 1) {
-    //         window.scrollTo(0,190);
-    //       }
-    //     }, 0);
-    //   });
-    // const startPosition=()=>{document.body.scrollLeft = 150;}
-// const [scrollPosition, setScrollPosition] = useState(0);
-// const handleScroll = () => {
-//     const position = window.pageYOffset;
-//     setScrollPosition(position);
-// };
-
-// useEffect(() => {
-//     window.addEventListener('scroll', handleScroll, { passive: true });
-
-//     return () => {
-//         window.removeEventListener('scroll', handleScroll);
-//     };
-// }, []);
-
-const viewWidth = Math.min(window.visualViewport.width, document.documentElement.clientWidth, window.innerWidth)
-    // const viewHeight = Math.min(window.visualViewport.height, document.documentElement.clientHeight, window.innerHeight)
-
+//when start is clicked, triggers useEffects to countdown and start race.//
     const handleGo = (e) => {
         e.target.id = 'go';
         setGo('MARK');
@@ -176,16 +111,16 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
     useEffect(() => {
         if(go === 'MARK') {
             setResultScreen('set');
-            
-            // if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--trackStart', -100 + window.pageXOffset + 'px');}
+            if(viewWidth <= 640){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1270 + 'px');}
+            else if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1448 + 'px');}
             const markSet = setTimeout(() =>
             setGo('SET'),1300)
             return() => clearTimeout(markSet);
        }},[go, resultScreen, viewWidth])
 
-    //setting up results screen with winner or ties as well as their sponsored options//
+//setting up results screen with winner or ties as well as their sponsored options//
     const raceResults = () => {
-        //rounder uses multiply 8 rather than 10 cause each racers moving animation crosses finish line at 80% of animation duration//
+//rounder uses multiply 8 rather than 10 cause each racers moving animation crosses finish line at 80% of animation duration//
         let rounder = (num) => { return Math.round(num * 8)/10}
         let lane1 = ['pup', rounder(lane1Time.time),pup.sponsor, pup.id, pup.color];
         let lane2 = ['dan', rounder(lane2Time.time),dan.sponsor, dan.id, dan.color];
@@ -218,17 +153,13 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
     const theWinnerColor = () => {return raceResultsFinished[0][4]};
     const theWinnerText = () => {return raceResultsFinished[0][2]};
     const winTitle = () => {return raceResultsFinished.length > 3 ? '3 WAY TIE!!!' : raceResultsFinished.length > 2 ? 'TIE!!!' : <font style={{color:theWinnerColor()}}>WINNER!!!</font>}
-    //starts race, gets racers moving, and page to follow racers from left to right//
-    // const viewWidth = Math.max(window.visualViewport.width || 0, document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    
+//starts race, gets racers moving, and page to follow racers from left to right//
+// const viewWidth = Math.max(window.visualViewport.width || 0, document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
     useEffect(() => {
         if(go ==='SET'){
         const markSetGo = setTimeout(() => {
             setGo('GO!');
-            console.log(window.pageXOffset);
-            if(viewWidth < 650){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1270 + 'px');}
-            else if(viewWidth < 1400){document.querySelector('#follow').style.setProperty('--tracking',viewWidth - 1448 + 'px');}
             if(pup.position === 'lane1Set'){setPup({...pup, position:lane1Time.animation, id:'pupMove'})}
             if(dan.position === 'lane2Set'){setDan({...dan, position:lane2Time.animation, id:'danMove'})}
             if(honey.position === 'lane3Set'){setHoney({...honey, position:lane3Time.animation, id:'honeyMove'})}
@@ -242,7 +173,6 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
             setFollow('');
             setResultScreen('off');
             setWinnerEnter('');
-            // startPosition();
             document.querySelector('.go').id = 'start';
             const allRacerLanes = [document.getElementById('setLane1'), document.getElementById('setLane2'),
             document.getElementById('setLane3'), document.getElementById('setLane4'), document.getElementById('setLane5')]
@@ -250,8 +180,8 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
                 e.checked ? setupRacer(e.id) : removeRacer(e.id);
             });
         };
-        const handleResetClick = () => window.location.reload();
-    //JSX for results screen displayed at end of race//
+    const handleResetClick = () => window.location.reload();
+//JSX for results screen displayed at end of race//
     const winResultsCover = (winnerDisplay) => { if (winnerDisplay=== 'on'){
         return(<div className='winnerCover' id='winnerCover' >
             <h1 className='winnerText' id='winnerText'>{winTitle()}</h1>
@@ -287,7 +217,7 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
         </div>}
     <div></div>;}
     
-    //timing for when results screen starts and when it finishes and resets app//
+//timing for when results screen starts and when it finishes and resets app//
     useEffect(() => {
         if(go ==='GO!'){
         const goResult = setTimeout(() => {   
@@ -296,23 +226,17 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
             setFollow('winCenter');
             setWinnerEnter('winnerEnter')
         },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 1800)
-        // const reset = setTimeout(() =>
-        // { window.location.reload();
-        // },raceResultsFinished[raceResultsFinished.length -1][1] * 1000 + 700000)
-        // return() => clearTimeout(goResult, reset);
         return() => clearTimeout(goResult);
         }},[go, resultScreen, raceResultsFinished, winnerEnter])
     
-    //racerVariable produces a degree of diviation from a racers average time of 9 seconds.
-    //racerPradictable is 9 seconds minus the average of racerVariable x(0.5) which is the average out come of Math.random.//
+//racerVariable produces a degree of diviation from a racers average time of 9 seconds.
+//racerPradictable is 9 seconds minus the average of racerVariable x(0.5) which is the average out come of Math.random.//
     const raceTimeMaker = (racerVariable,racerPradictable) => {return (Math.random()* racerVariable) + racerPradictable}
 
     const setupRacer = (setLane) => {
-        // if (keyboardIsOpen === false){setFollow('keyboardInputMove')};
         switch(setLane) {
         case 'setLane1': { setPup({...pup,position:'lane1Set', id:'pupMove'})
         let lane1 = document.getElementById('lane1input')
-        // lane1.focus();
         lane1.setAttribute('placeholder','enter sponsored option')
             let raceTime = raceTimeMaker(3,7.5);
             // let raceTime = raceTimeMaker(0,9);
@@ -360,9 +284,8 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
             default:
             }}
 
-    //function used to remove racer from race when user unclicks racers name//
+//function used to remove racer from race when user unclicks racers name//
     const removeRacer = (setLane) => {
-        setFollow('keyboardInputMoveOut');
         window.scrollTo({top:0,left:0, behavior: 'smooth'});
         switch(setLane) {
         case 'setLane1': { setPup({...pup,position:'lane1Out', id:'pup'}); 
@@ -391,11 +314,11 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
         e.preventDefault();
     }
 
-    //Checks when racer is clicked if the click is to remove racer or set them to join race.//
+//Checks when racer is clicked if the click is to remove racer or set them to join race.//
     const handleSetRacerClick = (e) => {
         e.target.checked ? setupRacer(e.target.id) : removeRacer(e.target.id);
     }   
-    // Racer intro animations from Moving to Click to Idle //
+// Racer intro animations from Moving to Click to Idle //
     useEffect(() => { if ((pup.id === 'pupMove')&&(go === 'START')){
         const moveToClick= setTimeout(() => setPup({...pup,id:'pupClick'}),1700)
         return () => clearTimeout(moveToClick);}
@@ -440,9 +363,7 @@ const viewWidth = Math.min(window.visualViewport.width, document.documentElement
 const setupFocus = (e) => {let htmlfor = e.target.htmlFor; document.getElementById(htmlfor).checked ? document.getElementById(`lane${htmlfor[7]}input`).blur() : document.getElementById(`lane${htmlfor[7]}input`).focus();}
 
 return (
-<div className="container" 
-// style={{transform:`translate(-${transX}, -${transY})`, left:transX, top:transY}} 
-id={follow}>
+<div className="container" id={follow}>
   <div className="inner-container">
     <div className="grid-container">
         <div className='titleShadow' >DECISION eRACER</div>

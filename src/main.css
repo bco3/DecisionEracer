@@ -1,71 +1,30 @@
 html {
-  /* touch-action: none; */
-  /* left: 20%; */
-  /* height: 100%; */
-  /* position: relative; */
-  /* position: absolute; */
-  /* min-height: 696px; */
-  /* min-width: 1448px; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* top: 0; */
-  /* padding: 0; */
-  /* margin: 0; */
+  touch-action: none;
+  padding: 0;
+  margin: 0;
   font-size: 16px;
   font-family: 'Open Sans', Impact, sans-serif;
-  /* overflow: scroll; */
-  /* overflow: visible; */
   overflow: hidden;
-  /* overflow-y: auto; */
-  /* overflow-x: auto; */
   font-style: italic;
 }
 
 body {
-  /* overscroll-behavior: none; */
-  /* touch-action: none; */
-  /* position: relative; */
-  /* display: flex; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  /* position: absolute; */
-  /* left: 200px; */
   height: 100%;
   width: 100%;
-  /* top:0; */
-  /* max-width: 1448px; */
-  /* max-height: 696px; */
-  /* overflow: visible; */
-  /* overflow: auto; */
-  /* overflow-x: visible; */
-  /* background-color: #ffffff; */
   overflow: hidden;
-  /* justify-content: start; */
-  /* align-items: end; */
-  /* align-content: center; */
   margin: 0;
-  /* padding: 0; */
+  padding: 0;
   color: rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
   background: url('./img/grassBG.jpg') repeat;
-  /* background-size: cover; */
 }
 
 #root {
-  /* position: relative; */
-  /* position: absolute; */
-  /* max-height: 696px; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* min-width: 100%; */
-  /* display: grid; */
-  /* min-width: 1448px; */
-  /* min-height: 696px; */
-  /* top: 0; */
-  /* padding: 0; */
-  /* margin: 0; */
-  /* overflow: visible; */
+  padding: 0px;
+  margin: 0px;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
 }
@@ -73,20 +32,13 @@ body {
 .container {
   touch-action: none;
   display: grid;
-  /* position: relative; */
+  padding: 0px;
+  margin: 0px;
   position: absolute;
   width: 1448px;
   height: 696px;
   top: 50%;
-  /* left: 200px; */
-  /* right: -100; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* overflow: visible;  */
-  /* overflow-y: hidden; */
   overflow: hidden;
-  /* scroll-snap-type: y mandatory; */
-  /* scroll-padding-top: 1.5rem;   */
   transform: translate3d(0%, -50%, 0px);
 }
 
@@ -114,21 +66,18 @@ body {
 
 .inner-container {
   touch-action: none;
-  /* left: 100px; */
-  /* display: flex; */
-  /* overflow: hidden; */
-  /* overflow-y: auto; */
-  /* overflow-x: hidden;  */
   overflow: visible;
   position: relative;
   width: 1448px;
   height: 696px;
   background: url('./img/tracklongmobile.jpg') no-repeat center;
   background-size: cover;
+  padding: 0px;
+  margin: 0px;
 }
 
 .grid-container {
-  /* touch-action: none; */
+  touch-action: none;
   display: grid;
   position: relative;
   margin: 0;
@@ -139,12 +88,9 @@ body {
   width: 760px;
   height: 344px;
   overflow: visible;
-  /* overflow: hidden; */
   grid-template-columns: 128px 504px 128px;
   grid-template-rows: 67.2px 46.4px 46.4px 46.4px 48px 49.6px 32px;
   grid-row-gap: 3.2px;
-  /* justify-self:  center; */
-  /* justify-content: center;  */
   align-content: center;
   justify-items: center;
   align-items: center;
@@ -155,30 +101,17 @@ body {
 .winnerCover {
   /* pointer-events: none; */
   position: absolute;
-  /* position: fixed; */
-  /* position: relative; */
   margin: 0;
-  /* top: 50%; */
-  /* left: 25%; */
-  /* transform: translate(-50%, -50%); */
-  /* transform: translate3d(0px, 40px, 0px); */
-  /* right:0; */
   padding: 0;
   display: grid;
   width: 1816px;
   height: 872px;
-  /* width: 1448px; */
-  /* height: 696px; */
-  /* height: 100vh; */
-  /* grid-gap: 5px; */
   grid-template-columns: 1fr 504px 1fr;
   grid-template-rows: 45px 70px 43px 43px 43px 43px;
   background: url('./img/tracklongmobile.jpg');
-  background-size: 100%;
-  /* background-position: right -250px top 42px; */
+  background-size: cover;
   background-position: center;
   opacity: 0%;
-  /* overflow: visible; */
   overflow: hidden;
   justify-content: center;
   align-content: center;
@@ -186,7 +119,6 @@ body {
   align-items: center;
   justify-self: center;
   align-self: center;
-  /* transition: opacity 0.5s ease-in; */
 }
 
 #winnerCover {
@@ -194,8 +126,6 @@ body {
 }
 
 .winContainer {
-  /* margin: 20px; */
-  /* padding: 20px; */
   grid-area: 2/2;
   display: flex;
   transform: scale3d(-1.1, 1.1, 1.1) translate3d(-400px, 70px, 0px);
@@ -241,7 +171,6 @@ body {
     grid-template-rows: 45px 70px 43px 43px 43px 43px;
     background: url('./img/tracklong.jpg');
     background-size: 100%;
-    /* background-position: right -250px top 42px; */
     background-position: center;
     opacity: 0%;
     overflow: hidden;
@@ -259,33 +188,10 @@ body {
 
 }
 
-@media screen and (max-width:649px) {
+@media screen and (max-width:640px) {
   .container {
     left: -90px;
   }
-
-  /* #keyboardInputMove {
-    animation: inputMove 1s ease-in-out forwards;
-  }
-
-  @keyframes inputMove {
-    100% {
-      transform: translate3d(-200px, -50%, 0px)
-    }
-  }
-
-  #keyboardInputMoveOut {
-    animation: inputMoveOut 1s ease-in-out forwards;
-  }
-
-  @keyframes inputMoveOut {
-    0% {
-      transform: translate3d(-200px, -50%, 0px)
-    }
-    100% {
-      transform: translate3d(0px, -50%, 0px)
-    }
-  } */
 
   #follow {
     animation: raceTracking 10.7s ease-in-out forwards;

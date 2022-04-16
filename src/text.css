@@ -30,6 +30,7 @@
 
 .go {
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     font-size: 32px;
     grid-area: 1/1;
     top: 22.4px;
@@ -94,7 +95,9 @@
 /* lane input and checkbox, are used to setup racers name as a checkbox to bring racer into the race,
 enter a option for the decision maker part of the app, the entered option is only temperarily stored in racers state object with sponsor as key. */
 label {
-    left: -42%
+    left: -42%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 input {
     width: 256px;
@@ -104,6 +107,11 @@ input {
     border: 0;
     font-size: 19.2px;
     color:rgb(180, 180, 180);
+}
+
+input::placeholder {
+    color:rgb(180, 180, 180);
+    opacity: 0.4;
 }
 
 .lane1input {
@@ -360,19 +368,14 @@ as a feature of using the racers to help make decisions based on options entered
 }
 
 .winButtons {
-    /* display: inline-block; */
     z-index: 50;
-    /* padding: 20px; */
-    /* margin: 20px; */
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     font-size: 35px;
     text-shadow: -2px -2px 2px rgba(0, 0, 0, 0.322);
     grid-area: 3/2;
     transform: translate3d(0px, 24px, 0px);
-    /* top: 22.4px; */
-    /* left: 91.2px; */
     position: relative;
-    /* justify-content: space-between; */
     text-align: center;
     width: 100%;
     height: 100%;

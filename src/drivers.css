@@ -60,7 +60,6 @@ moving animtations are set to the track lane on track.css  */
     width: 110px;
     transform: scale3d(1,1,1) translate3d(0px,-64px, 0px);
     background-image: url('./img/pup.png');
-    /* animation: pupClick 2s steps(9) infinite; */
 }
 .pupWinShadow {
     display: inline-block;
@@ -71,7 +70,6 @@ moving animtations are set to the track lane on track.css  */
     filter: brightness(0%) blur(2px);
     transform: scale3d(1,1,1) translate3d(0px,54px, 0px) matrix(1, 0, 1, 1, -35, -57);
     background-image: url('./img/pup.png');
-    /* animation: pupClick 2s steps(9) infinite; */
 }
 
 
@@ -118,7 +116,6 @@ moving animtations are set to the track lane on track.css  */
 }
 #danClick, #danClickShadow {
     animation: danClick 3s steps(12) infinite;
-    /* animation-iteration-count: 3; */
 }
 @keyframes danClick {
     from {
@@ -137,7 +134,6 @@ moving animtations are set to the track lane on track.css  */
     width: 110px;
     transform: scale3d(1,1,1) translate3d(0px,-64px, 0px);
     background-image: url('./img/dan.png');
-    /* animation: danClick 3s steps(12) infinite; */
 }
 .danWinShadow {
     display: inline-block;
@@ -172,7 +168,6 @@ moving animtations are set to the track lane on track.css  */
 }
 #honeyIdle, #honeyIdleShadow {
     animation: honeyIdle 1.5s steps(5) infinite;
-    /* animation-iteration-count: 3; */
 }
 #honeyMove {
     animation: honeyMove 1.5s steps(9) infinite;
@@ -208,7 +203,6 @@ moving animtations are set to the track lane on track.css  */
 }
 #honeyClick {
     animation: honeyClick 2s steps(12) infinite;
-    /* animation-iteration-count: 3; */
 }
 @keyframes honeyClick {
     0% {
@@ -225,7 +219,6 @@ moving animtations are set to the track lane on track.css  */
 }
 #honeyClickShadow {
     animation: honeyClickShadow 2s steps(12) infinite;
-    /* animation-iteration-count: 3; */
 }
 @keyframes honeyClickShadow {
     0% {
