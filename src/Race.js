@@ -103,10 +103,22 @@ export const Race = () => {
     }, []);
     
 //when start is clicked, triggers useEffects to countdown and start race.//
+
+    const isThereTwoRacersSet = () =>{
+            let racerCount = 0;
+            if(pup.position === 'lane1Set'){ racerCount += 1}
+            if(dan.position === 'lane2Set'){ racerCount += 1}
+            if(honey.position === 'lane3Set'){ racerCount += 1}
+            if(golden.position === 'lane4Set'){ racerCount += 1}
+            if(foxy.position === 'lane5Set'){ racerCount += 1}
+            return racerCount > 1 ;
+    }
+
     const handleGo = (e) => {
+        if (isThereTwoRacersSet() === true){
         e.target.id = 'go';
         setGo('MARK');
-        setFollow('follow')
+        setFollow('follow')}
     }
     useEffect(() => {
         if(go === 'MARK') {
