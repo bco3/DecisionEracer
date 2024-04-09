@@ -7,10 +7,10 @@ laneSlow is for below average race time and laneFast is for above average race t
     grid-area: 2/1;
     width: 96px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
     height: 48px;
 }
 
@@ -139,10 +139,10 @@ laneSlow is for below average race time and laneFast is for above average race t
     grid-area: 3/1;
     width: 96px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
     height: 48px;
 }
 
@@ -299,10 +299,10 @@ laneSlow is for below average race time and laneFast is for above average race t
     grid-area: 4/1;
     width: 96px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
     height: 48px;
 }
 
@@ -431,10 +431,10 @@ laneSlow is for below average race time and laneFast is for above average race t
     width: 96px;
     height: 48px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
 }
 
 #lane4Set {
@@ -571,10 +571,10 @@ laneSlow is for below average race time and laneFast is for above average race t
     width: 96px;
     height: 48px;
     position: absolute;
-    justify-content: center;
+    /* justify-content: center;
     align-content: center;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
 }
 
 #lane5Set {
